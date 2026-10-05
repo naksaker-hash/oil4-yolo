@@ -19,8 +19,9 @@ At a threshold t each detector gives a set of patches per chip, and:
   IoU      of that same patch, never the best of all patches
   rank     of that patch by score among the patches of its own chip
   FA       patches per km2 on the pre-event null chips, with the exact
-           Poisson 95 % upper limit (zero patches on 6 chips of 6.55 km2
-           bounds the rate only below 0.076 per km2)
+           Poisson upper limit, the upper end of a two sided 95 % interval
+           (zero patches on 6 chips of 6.55 km2 each bounds the rate only
+           below 0.094 per km2)
 
 Operating points, fixed BEFORE looking at the real chips:
   z-score   t = 4, the reference rule

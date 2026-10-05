@@ -60,6 +60,24 @@ Detection at the operating points fixed in advance (co-registered pairs; IoU of 
 
 All three v2 seeds rank both spills first in their scenes; seed 2 misses them only because its synthetic validation threshold (0.40) lies above the spill scores (0.22).
 
+## Revision analyses
+
+| Script | Purpose |
+|---|---|
+| `revlib.py` | shared pieces: decoding, patches, hit rules, baselines (z score, RX, IR-MAD, random forest), bootstrap |
+| `10_fetch_extra.py` | 7 x 7 chip scene around each spill, and later post event dates |
+| `11_fetch_confounders.py` | stubble burn pairs (VIIRS FIRMS) and cloud shadow pairs |
+| `12_train_rf.py` | random forest pixel baseline trained on the same synthetic data |
+| `13_revision_eval.py` | every detector on every real set, counts on a threshold grid |
+| `14_physics.py` | background corrected attenuation, 20 m check, multiplicative versus mixing fit |
+| `run_revision.sh`, `run_fetch2.sh`, `run_reveval.sh` | the queues that produced the revision results |
+
+`data/manifest.csv` lists every clean training and validation chip with its
+plain, location, tile and Sentinel-2 pre and post product identifiers, so the
+training set can be rebuilt exactly. Training uses `deterministic=True`, but
+GPU and library versions can still change results slightly, which is why
+several seeds are reported.
+
 ## Trained weights
 
 The `best.pt` of all twelve runs are attached to the [release](../../releases) of this repository.

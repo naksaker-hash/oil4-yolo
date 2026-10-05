@@ -9,3 +9,4 @@ __pycache__/
 assets/turkey.geojson
 figs/
 assets/world_outline.geojson
+!data/manifest.csv

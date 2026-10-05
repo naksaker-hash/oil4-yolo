@@ -24,6 +24,10 @@ could not reach either event's measured SWIR k). It adds the core and
 margin structure measured at Siverek and widens the SWIR prior. Because it
 was motivated by a test result, v1 and v2 are both reported in the paper.
 --ablate returns one v2 property to its v1 setting (sharp, halo, green, swir).
+--profile dr is a domain randomised generator set without reference to
+either event (random darkening, independent random factor per band, random
+edge, margin and placement). --native20 implants the 20 m bands at their
+native resolution. A non zero --seed draws an independent dataset.
 
 Details that matter for every profile:
   labels are pixel-corner exact polygons
@@ -108,10 +112,17 @@ def core_k(rng, regime, k_meas, profile="v1", off=()):
         k[SWIR] = kv + pull * (1 - kv) + rng.normal(0, 0.03, 2)
     else:
         k = np.asarray(k_meas[regime]) * rng.uniform(0.85, 1.15) + rng.normal(0, 0.03, len(BANDS))
+    if regime == "gen" and profile == "dr":
+        # domain randomisation, set without reference to either event: a
+        # random overall darkening and an independent random factor per band
+        k = rng.uniform(0.1, 0.95) * np.exp(rng.normal(0, 0.25, len(BANDS)))
     return np.clip(k, 0.1, 1.1)
 
 
-def implant(rng, pre, post, regime, k_meas, profile="v1", off=()):
+BANDS20 = [IB[b] for b in ("B5", "B6", "B7", "B8A", "B11", "B12")]
+
+
+def implant(rng, pre, post, regime, k_meas, profile="v1", off=(), native20=False):
     post = post.copy()
     mask = np.zeros((CHIP, CHIP), bool)
     n = rng.choice([0, 1, 1, 1, 2, 3], p=None)
@@ -145,8 +156,17 @@ def implant(rng, pre, post, regime, k_meas, profile="v1", off=()):
         wgt = np.clip(d / max(d.max() * rng.uniform(0.3, 0.8), 1), 0, 1)
         # v1 always fades to 0.3 at the edge. v2 also allows a sharp edged
         # core, the Siverek core being strong up to its boundary.
-        floor = 0.3 if profile == "v1" or "sharp" in off else rng.uniform(0.3, 1.0)
+        if profile == "dr":
+            floor = rng.uniform(0.2, 1.0)
+        else:
+            floor = 0.3 if profile == "v1" or "sharp" in off else rng.uniform(0.3, 1.0)
         wgt = np.where(m, floor + (1 - floor) * wgt, 0)
+        if profile == "dr" and rng.random() < 0.5:
+            # random unlabelled margin, width and weight drawn wide
+            halo = ndi.binary_dilation(m, iterations=int(rng.integers(1, 7)))
+            halo &= ndi.gaussian_filter(rng.standard_normal(m.shape), 2) > rng.uniform(-0.6, 0.3)
+            halo &= ~m
+            wgt = np.where(halo, rng.uniform(0.05, 0.7), wgt)
         if profile == "v2" and "halo" not in off and rng.random() < 0.5:
             # weaker oiled margin around the core, not labelled, as measured
             # at Siverek (core 0.49 ha inside a 2.33 ha extent)
@@ -156,7 +176,13 @@ def implant(rng, pre, post, regime, k_meas, profile="v1", off=()):
             wgt = np.where(halo, rng.uniform(0.15, 0.5), wgt)
         wgt = ndi.gaussian_filter(wgt, 0.7)          # mixed edge pixels
         k = core_k(rng, regime, k_meas, profile, off)
-        post *= 1 - wgt[None] * (1 - k[:, None, None])
+        att = np.repeat(wgt[None], len(BANDS), 0)
+        if native20:
+            # the 20 m bands see the coating averaged over their native
+            # 2 x 2 footprint, then resampled to 10 m like the data
+            w20 = wgt.reshape(CHIP // 2, 2, CHIP // 2, 2).mean((1, 3))
+            att[BANDS20] = ndi.zoom(w20, 2, order=1)[None]
+        post *= 1 - att * (1 - k[:, None, None])
         mask |= m
         polys.append(m)
     post += rng.normal(0, 0.002, post.shape).astype(np.float32)
@@ -204,7 +230,9 @@ def main():
     ap.add_argument("--regime", default="gen", choices=["gen", "siverek", "narli"])
     ap.add_argument("--copies", type=int, default=3, help="synthetic versions per clean pair")
     ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--profile", default="v1", choices=["v1", "v2"],
+    ap.add_argument("--native20", action="store_true",
+                    help="implant the 20 m bands at their native resolution")
+    ap.add_argument("--profile", default="v1", choices=["v1", "v2", "dr"],
                     help="v2 adds sharp edged cores and an unlabelled oiled margin")
     ap.add_argument("--ablate", default="", choices=["", "sharp", "halo", "green", "swir"],
                     help="v2 with one ingredient switched back to v1 behaviour")
@@ -214,8 +242,9 @@ def main():
     k_meas = {e: list(json.load(open(DATA / f"k_{e}.json"))["k"].values())
               for e in ["narli", "siverek"]}
 
-    root = DATA / (f"yolo_{args.regime}" + ("" if args.profile == "v1" else "_v2")
-                  + (f"_no{args.ablate}" if args.ablate else ""))
+    root = DATA / (f"yolo_{args.regime}" + ("" if args.profile == "v1" else f"_{args.profile}")
+                  + (f"_no{args.ablate}" if args.ablate else "")
+                  + ("_n20" if args.native20 else "") + (f"_d{args.seed}" if args.seed else ""))
     shutil.rmtree(root, ignore_errors=True)
     clean = sorted((DATA / "clean").glob("*.npz"))
     for f in clean:
@@ -225,7 +254,7 @@ def main():
         split = "val" if plain_of(json.loads(str(z["meta"]))) in VAL_PLAINS else "train"
         for c in range(args.copies):
             post, mask, polys = implant(rng, z["pre"], z["post"], args.regime, k_meas,
-                                        args.profile, off)
+                                        args.profile, off, args.native20)
             img, _ = features(z["pre"], post)
             write(root, split, f"{f.stem}_{c}", img, yolo_lines(polys),
                   mask if split == "val" else None)
