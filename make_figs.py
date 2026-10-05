@@ -87,7 +87,7 @@ def fig2():
     run = ROOT / "runs" / "gen_v2_yolo26n-seg_s0"
     s = json.load(open(run / "eval_summary.json"))
     model = YOLO(str(run / "weights" / "best.pt"))
-    fig, ax = plt.subplots(1, 2, figsize=(7.2, 3.7))
+    fig, ax = plt.subplots(2, 1, figsize=(3.5, 7.6))
     for i, (a, (event, title)) in enumerate(zip(ax, EVENTS)):
         p = DATA / "real" / f"{event}_event.npz"
         label = realio.load(p, coreg=False)["mask"]
@@ -112,8 +112,8 @@ def fig2():
          plt.Line2D([], [], color=COL["zscore"], lw=1.3, path_effects=ring, label=NAME["zscore"] + ", z = 4"),
          plt.Line2D([], [], color=COL["v2"], lw=1.3, path_effects=ring,
                     label=NAME["v2"] + f", score {s['yolo_val_threshold']}")]
-    fig.legend(handles=h, loc="lower center", ncol=3, frameon=False, fontsize=7.5)
-    fig.tight_layout(rect=(0, 0.07, 1, 1), pad=0.3)
+    fig.legend(handles=h, loc="lower center", ncol=1, frameon=False, fontsize=7.5)
+    fig.tight_layout(rect=(0, 0.075, 1, 1), pad=0.3)
     fig.savefig(OUT / "fig2_detections.pdf"); fig.savefig(OUT / "fig2_detections.png", dpi=200)
 
 
