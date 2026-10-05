@@ -87,7 +87,7 @@ def fig2():
     run = ROOT / "runs" / "gen_v2_yolo26n-seg_s0"
     s = json.load(open(run / "eval_summary.json"))
     model = YOLO(str(run / "weights" / "best.pt"))
-    fig, ax = plt.subplots(2, 1, figsize=(3.5, 7.6))
+    fig, ax = plt.subplots(1, 2, figsize=(7.2, 3.7))
     for i, (a, (event, title)) in enumerate(zip(ax, EVENTS)):
         p = DATA / "real" / f"{event}_event.npz"
         label = realio.load(p, coreg=False)["mask"]
@@ -112,8 +112,8 @@ def fig2():
          plt.Line2D([], [], color=COL["zscore"], lw=1.3, path_effects=ring, label=NAME["zscore"] + ", z = 4"),
          plt.Line2D([], [], color=COL["v2"], lw=1.3, path_effects=ring,
                     label=NAME["v2"] + f", score {s['yolo_val_threshold']}")]
-    fig.legend(handles=h, loc="lower center", ncol=1, frameon=False, fontsize=7.5)
-    fig.tight_layout(rect=(0, 0.075, 1, 1), pad=0.3)
+    fig.legend(handles=h, loc="lower center", ncol=3, frameon=False, fontsize=7.5)
+    fig.tight_layout(rect=(0, 0.07, 1, 1), pad=0.3)
     fig.savefig(OUT / "fig2_detections.pdf"); fig.savefig(OUT / "fig2_detections.png", dpi=200)
 
 
@@ -227,34 +227,37 @@ def fig_map():
 
 
 def fig_workflow():
-    """Processing chain from imagery to evaluation."""
-    fig, ax = plt.subplots(figsize=(7.2, 2.6))
-    ax.set_xlim(0, 100); ax.set_ylim(0, 36); ax.axis("off")
-    box = dict(boxstyle="round,pad=0.4", fc="#f4f4f2", ec="#888", lw=0.7)
-    hi = dict(boxstyle="round,pad=0.4", fc="#e3f3ec", ec=COL["v2"], lw=1.0)
-    real = dict(boxstyle="round,pad=0.4", fc="#e6eefa", ec=COL["zscore"], lw=1.0)
-    nodes = {
-        "clean": (11, 27, "1,370 clean Sentinel-2\npairs, 10 plains\n(2019 to 2025)", box),
-        "gen": (33, 27, "Plume generator\nmultiplicative attenuation\nv1 or v2", hi),
-        "feat": (55, 27, "Change channels\nΔNBR, Δlog BAI,\nΔlog mean reflectance", box),
-        "train": (77, 27, "YOLO26n-seg\n3,162 train, 948 val\nthreshold from val F1", hi),
-        "real": (11, 8, "2 spill pairs and\n22 null pairs\n(coregistered)", real),
-        "zs": (44, 8, "Outlier detector\nz ≤ −4 on ΔNBR", real),
-        "eval": (77, 8, "Scene level evaluation\nhit, IoU, rank,\nfalse alarms per km²", box),
+    """Processing chain from imagery to evaluation, one column, top to bottom."""
+    fig, ax = plt.subplots(figsize=(3.5, 4.7))
+    ax.set_xlim(0, 50); ax.set_ylim(0, 100); ax.axis("off")
+    box = dict(boxstyle="round,pad=0.45", fc="#f4f4f2", ec="#888", lw=0.7)
+    hi = dict(boxstyle="round,pad=0.45", fc="#e3f3ec", ec=COL["v2"], lw=1.0)
+    real = dict(boxstyle="round,pad=0.45", fc="#e6eefa", ec=COL["zscore"], lw=1.0)
+    spec = {
+        "clean": (13, 92, "1,370 clean Sentinel-2\npairs, 10 plains\n(2019 to 2025)", box),
+        "gen": (13, 72, "Plume generator\nmultiplicative\nattenuation, v1 or v2", hi),
+        "feat": (13, 52, "Change channels\nΔNBR, Δlog BAI,\nΔlog mean reflectance", box),
+        "train": (13, 32, "YOLO26n-seg\n3,162 train, 948 val\nthreshold from val F1", hi),
+        "real": (38, 72, "2 spill pairs and\n22 null pairs\n(coregistered)", real),
+        "zs": (38, 32, "Outlier detector\nz ≤ −4 on ΔNBR", real),
+        "eval": (25.5, 8, "Scene level evaluation\nhit, IoU, rank,\nfalse alarms per km²", box),
     }
-    for k, (x, y, t, st) in nodes.items():
-        ax.text(x, y, t, ha="center", va="center", fontsize=7, bbox=st)
-    hw = {"clean": 8.2, "gen": 9.2, "feat": 8.2, "train": 7.8, "real": 6.0, "zs": 6.0, "eval": 8.2}
-    hh = 5.5
-    arr = dict(arrowstyle="-|>", color="#555", lw=0.8, shrinkA=0, shrinkB=0)
-    for a_, b_ in [("clean", "gen"), ("gen", "feat"), ("feat", "train"), ("real", "zs"), ("zs", "eval")]:
-        (xa, ya), (xb, yb) = nodes[a_][:2], nodes[b_][:2]
-        ax.annotate("", xy=(xb - hw[b_] - 0.4, yb), xytext=(xa + hw[a_] + 0.4, ya), arrowprops=arr)
-    ax.annotate("", xy=(77, 8 + hh + 1), xytext=(77, 27 - hh - 1), arrowprops=arr)
-    ax.annotate("", xy=(55, 27 - hh - 1), xytext=(11, 8 + hh + 1),
-                arrowprops=dict(arrowstyle="-|>", color=COL["zscore"], lw=0.8, ls="--",
-                                connectionstyle="arc3,rad=-0.12"))
-    ax.text(26, 17.5, "same channels", fontsize=6.5, color=COL["zscore"], rotation=14)
+    t = {k: ax.text(x, y, s, ha="center", va="center", fontsize=6.5, bbox=st, zorder=3)
+         for k, (x, y, s, st) in spec.items()}
+    fig.canvas.draw()
+
+    def link(a_, b_, pa, pb, color="#555", ls="-", rad=0.0):
+        ax.annotate("", xy=pb, xycoords=t[b_], xytext=pa, textcoords=t[a_], zorder=2,
+                    arrowprops=dict(arrowstyle="-|>", color=color, lw=0.8, ls=ls, shrinkA=2, shrinkB=2,
+                                    connectionstyle=f"arc3,rad={rad}"))
+    down = ((0.5, 0), (0.5, 1))
+    for a_, b_ in [("clean", "gen"), ("gen", "feat"), ("feat", "train"), ("real", "zs")]:
+        link(a_, b_, *down)
+    link("train", "eval", (0.5, 0), (0.25, 1))
+    link("zs", "eval", (0.5, 0), (0.75, 1))
+    # the real pairs pass through the same change channels as the synthetic ones
+    link("real", "feat", (0.5, 0), (1, 0.5), color=COL["zscore"], ls="--", rad=-0.25)
+    ax.text(27.5, 62.5, "same\nchannels", fontsize=6, color=COL["zscore"], ha="center", va="center")
     fig.tight_layout(pad=0.1)
     fig.savefig(OUT / "fig_workflow.pdf"); fig.savefig(OUT / "fig_workflow.png", dpi=200)
 
