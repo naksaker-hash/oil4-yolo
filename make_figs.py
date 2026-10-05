@@ -24,6 +24,7 @@ COL = {"zscore": "#2a78d6", "v1": "#eb6834", "v2": "#1baf7a"}
 LS = {"zscore": "-", "v1": "--", "v2": "-"}
 NAME = {"zscore": "z score detector", "v1": "YOLO, generator v1", "v2": "YOLO, generator v2"}
 EVENTS = [("narli", "Narlı 2018"), ("siverek", "Siverek 2021")]
+EVENT_DATES = {"narli": ("15 Jun 2018", "20 Jun 2018"), "siverek": ("5 Aug 2021", "15 Aug 2021")}
 plt.rcParams.update({"font.size": 8, "axes.edgecolor": "#888", "axes.linewidth": 0.6,
                      "xtick.color": "#555", "ytick.color": "#555", "axes.labelcolor": "#222",
                      "font.family": "DejaVu Sans"})
@@ -59,25 +60,65 @@ def letter(a, s):
            fontweight="bold", color="white", path_effects=ring)
 
 
+def truecolour(pre, post):
+    """B4, B3, B2 of both dates, one 1 to 99 % stretch shared by all bands and both
+    dates (keeps the colour balance), gamma 0.8."""
+    rgb = [np.moveaxis(x[[2, 1, 0]], 0, -1) for x in (pre, post)]
+    lo, hi = np.nanpercentile(np.concatenate([r.ravel() for r in rgb]), [1, 99])
+    return [np.clip((r - lo) / (hi - lo), 0, 1) ** 0.8 for r in rgb]
+
+
+def outline(a, mask, **kw):
+    c = a.contour(mask.astype(float), [0.5], colors="white", linewidths=kw.get("lw", 1.2),
+                  linestyles=kw.get("ls", "solid"))
+    c.set(path_effects=ring)
+
+
+def scalebar(a, px=20, label="200 m"):
+    x0 = a.get_xlim()[0]; y1 = a.get_ylim()[0]
+    a.plot([x0 + 5, x0 + 5 + px], [y1 - 5, y1 - 5], color="white", lw=2.2, path_effects=ring)
+    a.text(x0 + 5 + px / 2, y1 - 8, label, color="white", ha="center", fontsize=6.5, path_effects=ring)
+
+
 def fig1():
-    """Real event chips and synthetic v2 training chips with their labels."""
+    """True colour before and after each event, the network input, and synthetic v2 training pairs."""
     root = DATA / "yolo_gen_v2"
-    real = [root / "images/test_narli/narli_event.png", root / "images/test_siverek/siverek_event.png"]
     syn = []
     for p in sorted((root / "images/train").glob("*.png")):
         lab = (root / "labels/train" / (p.stem + ".txt")).read_text().strip()
-        if lab and len(syn) < 6 and p.stem.endswith("_0"):
+        if lab and len(syn) < 3 and p.stem.endswith("_0"):
             syn.append(p)
-    fig, ax = plt.subplots(2, 4, figsize=(7.2, 3.9))
-    for i, (a, p) in enumerate(zip(ax.ravel(), real + syn)):
+    fig, ax = plt.subplots(3, 3, figsize=(7.2, 7.6))
+    letters = iter("abcdefghi")
+    for r, (event, title) in enumerate(EVENTS):
+        d = realio.load(DATA / "real" / f"{event}_event.npz", coreg=True)
+        before, after = truecolour(d["pre"], d["post"])
+        net = Image.open(root / "images" / f"test_{event}" / f"{event}_event.png")
+        pre_d, post_d = EVENT_DATES[event]
+        for c, (img, head) in enumerate([(before, f"Before, {pre_d}"), (after, f"After, {post_d}"),
+                                         (net, "Network input")]):
+            a = ax[r, c]
+            a.imshow(img, interpolation="nearest")
+            outline(a, d["mask"], ls="dashed" if c == 0 else "solid")
+            zoom(a, d["mask"], 60 if event == "siverek" else 90)
+            a.set_xticks([]); a.set_yticks([])
+            a.set_title(head, fontsize=8)
+            letter(a, next(letters))
+            scalebar(a)
+        ax[r, 0].set_ylabel(title, fontsize=9)
+    for c, p in enumerate(syn):
+        a = ax[2, c]
         a.imshow(Image.open(p), interpolation="nearest")
         lab = p.parent.parent.parent / "labels" / p.parent.name / (p.stem + ".txt")
         for line in lab.read_text().splitlines():
             xy = np.array(line.split()[1:], float).reshape(-1, 2) * 256 - 0.5
             a.plot(*np.vstack([xy, xy[:1]]).T, color="white", lw=0.9, path_effects=ring)
         a.set_xticks([]); a.set_yticks([])
-        letter(a, "abcdefgh"[i])
-    fig.tight_layout(pad=0.3)
+        a.set_title("Synthetic training pair" if c == 1 else "", fontsize=8)
+        letter(a, next(letters))
+        scalebar(a, 50, "500 m")
+    ax[2, 0].set_ylabel("Generator v2", fontsize=9)
+    fig.tight_layout(pad=0.3, h_pad=0.8)
     fig.savefig(OUT / "fig1_synthetic.pdf"); fig.savefig(OUT / "fig1_synthetic.png", dpi=200)
 
 
