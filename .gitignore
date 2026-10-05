@@ -8,3 +8,4 @@ __pycache__/
 .DS_Store
 assets/turkey.geojson
 figs/
+assets/world_outline.geojson

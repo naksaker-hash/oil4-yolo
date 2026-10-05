@@ -69,7 +69,9 @@ The `best.pt` of all twelve runs are attached to the [release](../../releases) o
 * Code: MIT licence (`LICENSE`).
 * Reference outlines (`labels/`), attenuation ratios (`data/`) and results (`results/`): CC BY 4.0.
 * Sentinel-2 data: contains modified Copernicus Sentinel data 2018 to 2025, accessed through Earth Search (Element 84) on the Registry of Open Data on AWS.
-* Pipeline routes in `assets/`: © OpenStreetMap contributors, ODbL 1.0. The national outline used in the study area map is not redistributed; the map is drawn without it.
+* Pipeline routes in `assets/`: © OpenStreetMap contributors, ODbL 1.0.
+* `assets/globe_turkey.png`: adapted (recoloured) from the Wikimedia Commons map [Turkey (orthographic projection)](https://commons.wikimedia.org/wiki/File:Turkey_(orthographic_projection).svg) by The Emirr, CC BY-SA 3.0.
+* The FAO GAUL 2015 boundaries drawn in the location map (`assets/turkey.geojson`, `assets/world_outline.geojson`) are not redistributed; the map is drawn without them.
 
 ## Citation
 

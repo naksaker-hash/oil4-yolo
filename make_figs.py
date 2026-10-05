@@ -228,24 +228,72 @@ def _lines(gj):
 
 
 def fig_map():
-    """Study area: plains (training and held out validation), chip
-    centres, the two spills and their pipelines."""
+    """Location and study area. (a) Türkiye on the globe, (b) the whole country
+    with the study area, (c) the study area: plains (training and held out
+    validation), chip centres, the two spills and their pipelines."""
+    from matplotlib.patches import ConnectionPatch
     from config import EVENTS, PLAINS
     val_plains = ("ceylanpinar", "amik_hatay")
+    box_c = (35.0, 41.5, 35.9, 38.4)            # extent of panel c
     pts = {"train": [], "val": []}
     for f in sorted((DATA / "clean").glob("*.npz")):
         m = json.loads(str(np.load(f)["meta"]))
         pl = next((n for n, (a, b, c, d) in PLAINS.items() if a <= m["lon"] <= c and b <= m["lat"] <= d), None)
         pts["val" if pl in val_plains else "train"].append((m["lon"], m["lat"]))
-    fig, ax = plt.subplots(figsize=(7.2, 4.1))
-    # national outline, not redistributed here; the map is drawn without it if absent
-    if (ROOT / "assets" / "turkey.geojson").exists():
+    have = lambda n: (ROOT / "assets" / n).exists()
+    pipes = [("Kirkuk–Ceyhan pipeline", "pipeline_kirkuk_ceyhan", "-"),
+             ("Batman–Dörtyol pipeline", "pipeline_batman_dortyol", "--")]
+    halo = [pe.withStroke(linewidth=2.5, foreground="white")]
+
+    fig = plt.figure(figsize=(7.2, 6.4))
+    gs = fig.add_gridspec(2, 2, width_ratios=[1, 2.35], height_ratios=[1, 1.45], wspace=0.04, hspace=0.12)
+    # (a) globe, adapted from Wikimedia Commons (CC BY-SA 3.0)
+    ga = fig.add_subplot(gs[0, 0])
+    if have("globe_turkey.png"):
+        ga.imshow(Image.open(ROOT / "assets" / "globe_turkey.png"))
+    ga.axis("off")
+    ga.text(0.0, 1.0, "a", transform=ga.transAxes, va="top", fontsize=10, fontweight="bold")
+
+    # (b) the whole of Türkiye
+    gb = fig.add_subplot(gs[0, 1])
+    if have("world_outline.geojson"):
+        for ln in _lines(ROOT / "assets" / "world_outline.geojson"):
+            gb.plot(ln[:, 0], ln[:, 1], color="#c4c4c4", lw=0.5)
+    if have("turkey.geojson"):
         for ln in _lines(ROOT / "assets" / "turkey.geojson"):
-            ax.plot(ln[:, 0], ln[:, 1], color="#9a9a9a", lw=0.6)
-    for name, f in [("Kirkuk–Ceyhan pipeline", "pipeline_kirkuk_ceyhan"), ("Batman–Dörtyol pipeline", "pipeline_batman_dortyol")]:
+            gb.plot(ln[:, 0], ln[:, 1], color="#555", lw=0.8)
+    for name, f, ls in pipes:
+        for ln in _lines(ROOT / "assets" / f"{f}.geojson"):
+            gb.plot(ln[:, 0], ln[:, 1], color="#555", lw=0.8, ls=ls)
+    x0, x1, y0, y1 = box_c
+    gb.add_patch(plt.Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, ec="#c0392b", lw=1.3, zorder=4))
+    for e in ("narli", "siverek"):
+        gb.scatter(EVENTS[e]["lon"], EVENTS[e]["lat"], marker="*", s=55, color=COL["zscore"],
+                   ec="black", lw=0.4, zorder=5)
+    for x, y, t, kw in [(33.0, 39.3, "TÜRKİYE", dict(fontsize=9, color="#333", fontweight="bold")),
+                        (34.5, 42.6, "Black Sea", dict(fontsize=7, color="#4a7bb7", style="italic")),
+                        (29.4, 34.7, "Mediterranean Sea", dict(fontsize=7, color="#4a7bb7", style="italic")),
+                        (38.6, 35.0, "SYRIA", dict(fontsize=6.5, color="#888")),
+                        (44.7, 35.7, "IRAQ", dict(fontsize=6.5, color="#888")),
+                        (45.3, 38.0, "IRAN", dict(fontsize=6.5, color="#888"))]:
+        gb.text(x, y, t, ha="center", va="center", path_effects=halo, **kw)
+    gb.set_xlim(25.5, 46.5); gb.set_ylim(34.3, 43.1)
+    gb.set_aspect(1 / np.cos(np.radians(39)))
+    gb.tick_params(labelsize=6.5, length=2)
+    gb.set_xticks(range(26, 47, 4)); gb.set_yticks(range(35, 44, 2))
+    gb.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0f}°E"))
+    gb.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0f}°N"))
+    gb.yaxis.tick_right()
+    gb.text(0.01, 0.98, "b", transform=gb.transAxes, va="top", fontsize=10, fontweight="bold")
+
+    # (c) study area
+    ax = fig.add_subplot(gs[1, :])
+    if have("turkey.geojson"):
+        for ln in _lines(ROOT / "assets" / "turkey.geojson"):
+            ax.plot(ln[:, 0], ln[:, 1], color="#9a9a9a", lw=0.7)
+    for name, f, ls in pipes:
         for k, ln in enumerate(_lines(ROOT / "assets" / f"{f}.geojson")):
-            ax.plot(ln[:, 0], ln[:, 1], color="#555", lw=1.0, ls="--" if "Batman" in name else "-",
-                    label=name if k == 0 else None)
+            ax.plot(ln[:, 0], ln[:, 1], color="#555", lw=1.0, ls=ls, label=name if k == 0 else None)
     for n, (a, b, c, d) in PLAINS.items():
         col = COL["v1"] if n in val_plains else "#777"
         ax.add_patch(plt.Rectangle((a, b), c - a, d - b, fill=False, ec=col, lw=1.0))
@@ -253,18 +301,30 @@ def fig_map():
         p = np.array(pts[k])
         ax.scatter(p[:, 0], p[:, 1], s=2, color=c, lw=0,
                    label=f"{'Training' if k == 'train' else 'Validation'} chips ({len(p):,})")
-    for e, lab in [("narli", "Narlı 2018"), ("siverek", "Siverek 2021")]:
+    for e, lab, dx, dy in [("narli", "Narlı 2018", 0.1, -0.17), ("siverek", "Siverek 2021", -0.09, 0.3)]:
         ev_ = EVENTS[e]
-        ax.scatter(ev_["lon"], ev_["lat"], marker="*", s=140, color=COL["zscore"], ec="black", lw=0.6, zorder=5)
-        ax.text(ev_["lon"] + 0.08, ev_["lat"] + 0.08, lab, fontsize=8, zorder=6,
-                path_effects=[pe.withStroke(linewidth=2.5, foreground="white")])
-    ax.set_xlim(35.0, 41.5); ax.set_ylim(35.9, 38.4)
+        ax.scatter(ev_["lon"], ev_["lat"], marker="*", s=140, color=COL["zscore"], ec="black", lw=0.6, zorder=5,
+                   label="Spill" if e == "narli" else None)
+        ax.text(ev_["lon"] + dx, ev_["lat"] + dy, lab, fontsize=8, ha="left" if dx > 0 else "right", zorder=6, path_effects=halo)
+    ax.text(38.6, 36.2, "SYRIA", fontsize=7, color="#888", ha="center", path_effects=halo)
+    ax.text(35.3, 36.1, "Mediterranean\nSea", fontsize=7, color="#4a7bb7", style="italic", ha="center",
+            path_effects=halo)
+    ax.set_xlim(x0, x1); ax.set_ylim(y0, y1)
     ax.set_aspect(1 / np.cos(np.radians(37.2)))
     ax.set_xlabel("Longitude (°E)"); ax.set_ylabel("Latitude (°N)")
-    ax.spines[["top", "right"]].set_visible(False)
-    ax.legend(loc="lower right", fontsize=7, frameon=True, framealpha=0.9, markerscale=4)
-    fig.tight_layout(pad=0.3)
-    fig.savefig(OUT / "fig_map.pdf"); fig.savefig(OUT / "fig_map.png", dpi=200)
+    for s_ in ax.spines.values():
+        s_.set_edgecolor("#c0392b"); s_.set_linewidth(1.3)
+    ax.legend(loc="lower right", fontsize=6.5, frameon=True, framealpha=0.92, markerscale=1)
+    for h in ax.get_legend().legend_handles:
+        if hasattr(h, "set_sizes") and h.get_label().endswith(")"):
+            h.set_sizes([12])
+    ax.text(0.005, 0.985, "c", transform=ax.transAxes, va="top", fontsize=10, fontweight="bold")
+    # guide lines from the box in b to panel c
+    for xb, yb, xc, yc in [(x0, y0, 0, 1), (x1, y0, 1, 1)]:
+        fig.add_artist(ConnectionPatch(xyA=(xb, yb), coordsA=gb.transData, xyB=(xc, yc), coordsB=ax.transAxes,
+                                       color="#c0392b", lw=0.7, ls=":"))
+    fig.savefig(OUT / "fig_map.pdf", bbox_inches="tight", pad_inches=0.04)
+    fig.savefig(OUT / "fig_map.png", dpi=200, bbox_inches="tight", pad_inches=0.04)
 
 
 def fig_workflow():
