@@ -1,0 +1,134 @@
+{
+ "run": "gen_v2_nohalo_yolo26n-seg_s0",
+ "threshold": 0.15,
+ "val": {
+  "metrics/precision(B)": 0.992,
+  "metrics/recall(B)": 0.9744,
+  "metrics/mAP50(B)": 0.9922,
+  "metrics/mAP50-95(B)": 0.883,
+  "metrics/precision(M)": 0.8989,
+  "metrics/recall(M)": 0.8714,
+  "metrics/mAP50(M)": 0.8799,
+  "metrics/mAP50-95(M)": 0.5337,
+  "fitness": 1.4167
+ },
+ "size": {
+  "recall_by_size": {
+   "lt50": {
+    "hit": 364,
+    "n": 377,
+    "recall": 0.9655
+   },
+   "50to150": {
+    "hit": 364,
+    "n": 370,
+    "recall": 0.9838
+   },
+   "ge150": {
+    "hit": 500,
+    "n": 505,
+    "recall": 0.9901
+   }
+  },
+  "precision": 0.9919,
+  "recall": 0.9808,
+  "f1": 0.9863
+ },
+ "imgsz": {
+  "narli": {
+   "256": {
+    "hit": true,
+    "iou": 0.764,
+    "cover": 0.837,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "320": {
+    "hit": true,
+    "iou": 0.731,
+    "cover": 0.888,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "384": {
+    "hit": true,
+    "iou": 0.8,
+    "cover": 0.823,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "512": {
+    "hit": true,
+    "iou": 0.787,
+    "cover": 0.808,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "640": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   }
+  },
+  "siverek": {
+   "256": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   },
+   "320": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   },
+   "384": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   },
+   "512": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   },
+   "640": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   }
+  }
+ },
+ "occlude": {
+  "narli": {
+   "none": 0.2305,
+   "dNBR": 0.3807,
+   "dlogBAI": 0.0,
+   "dlogA": 0.0767
+  },
+  "siverek": {
+   "none": 0.0,
+   "dNBR": 0.0,
+   "dlogBAI": 0.0,
+   "dlogA": 0.0
+  }
+ },
+ "cost": {
+  "params_training_graph": 3053055,
+  "params": 2689079,
+  "gflops_at_imgsz": 3.24,
+  "ms_per_chip_cpu": 37.9,
+  "ms_per_chip_mps": 12.3
+ }
+}

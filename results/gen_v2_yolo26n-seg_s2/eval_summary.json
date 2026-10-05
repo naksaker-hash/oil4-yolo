@@ -1,0 +1,259 @@
+{
+ "run": "gen_v2_yolo26n-seg_s2",
+ "regime": "gen_v2",
+ "yolo_val_threshold": 0.4,
+ "yolo_val_f1": {
+  "grid": [
+   0.05,
+   0.1,
+   0.15,
+   0.2,
+   0.25,
+   0.3,
+   0.35,
+   0.4,
+   0.45,
+   0.5,
+   0.55,
+   0.6,
+   0.65,
+   0.7,
+   0.75,
+   0.8,
+   0.85,
+   0.9,
+   0.95
+  ],
+  "f1": [
+   0.9595,
+   0.9697,
+   0.9763,
+   0.9794,
+   0.9806,
+   0.9797,
+   0.9801,
+   0.9809,
+   0.9792,
+   0.9783,
+   0.9767,
+   0.977,
+   0.9723,
+   0.9594,
+   0.9349,
+   0.8762,
+   0.7422,
+   0.4469,
+   0.0048
+  ],
+  "n_val_images": 948
+ },
+ "z_fixed": 4.0,
+ "narli_zscore_coreg": {
+  "fixed": {
+   "thr": 4.0,
+   "hit": true,
+   "iou": 0.61,
+   "cover": 0.623,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 7,
+   "fa_per_km2": 0.178,
+   "fa_upper95": 0.3668
+  },
+  "oracle_post_hoc": {
+   "thr": 6.0,
+   "hit": true,
+   "iou": 0.36,
+   "cover": 0.361,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0938
+  },
+  "n_null_chips": 6,
+  "null_area_km2": 39.32
+ },
+ "narli_yolo_coreg": {
+  "fixed": {
+   "thr": 0.4,
+   "hit": false,
+   "iou": null,
+   "cover": null,
+   "rank": null,
+   "n_patches": 0,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0938
+  },
+  "oracle_post_hoc": {
+   "thr": 0.22,
+   "hit": true,
+   "iou": 0.715,
+   "cover": 0.781,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 1,
+   "fa_per_km2": 0.0254,
+   "fa_upper95": 0.1417
+  },
+  "n_null_chips": 6,
+  "null_area_km2": 39.32
+ },
+ "siverek_zscore_coreg": {
+  "fixed": {
+   "thr": 4.0,
+   "hit": true,
+   "iou": 0.465,
+   "cover": 0.673,
+   "rank": 1,
+   "n_patches": 2,
+   "fa_n": 69,
+   "fa_per_km2": 0.658,
+   "fa_upper95": 0.8328
+  },
+  "oracle_post_hoc": {
+   "thr": 7.0,
+   "hit": true,
+   "iou": 0.286,
+   "cover": 0.286,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 7,
+   "fa_per_km2": 0.0668,
+   "fa_upper95": 0.1375
+  },
+  "n_null_chips": 16,
+  "null_area_km2": 104.86
+ },
+ "siverek_yolo_coreg": {
+  "fixed": {
+   "thr": 0.4,
+   "hit": false,
+   "iou": null,
+   "cover": null,
+   "rank": null,
+   "n_patches": 0,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0352
+  },
+  "oracle_post_hoc": {
+   "thr": 0.22,
+   "hit": true,
+   "iou": 0.478,
+   "cover": 0.878,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0352
+  },
+  "n_null_chips": 16,
+  "null_area_km2": 104.86
+ },
+ "narli_zscore_raw": {
+  "fixed": {
+   "thr": 4.0,
+   "hit": true,
+   "iou": 0.61,
+   "cover": 0.623,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 8,
+   "fa_per_km2": 0.2035,
+   "fa_upper95": 0.4009
+  },
+  "oracle_post_hoc": {
+   "thr": 6.0,
+   "hit": true,
+   "iou": 0.36,
+   "cover": 0.361,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0938
+  },
+  "n_null_chips": 6,
+  "null_area_km2": 39.32
+ },
+ "narli_yolo_raw": {
+  "fixed": {
+   "thr": 0.4,
+   "hit": false,
+   "iou": null,
+   "cover": null,
+   "rank": null,
+   "n_patches": 0,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0938
+  },
+  "oracle_post_hoc": {
+   "thr": 0.22,
+   "hit": true,
+   "iou": 0.715,
+   "cover": 0.781,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 1,
+   "fa_per_km2": 0.0254,
+   "fa_upper95": 0.1417
+  },
+  "n_null_chips": 6,
+  "null_area_km2": 39.32
+ },
+ "siverek_zscore_raw": {
+  "fixed": {
+   "thr": 4.0,
+   "hit": true,
+   "iou": 0.493,
+   "cover": 0.714,
+   "rank": 1,
+   "n_patches": 2,
+   "fa_n": 72,
+   "fa_per_km2": 0.6866,
+   "fa_upper95": 0.8647
+  },
+  "oracle_post_hoc": {
+   "thr": 7.0,
+   "hit": true,
+   "iou": 0.286,
+   "cover": 0.286,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 7,
+   "fa_per_km2": 0.0668,
+   "fa_upper95": 0.1375
+  },
+  "n_null_chips": 16,
+  "null_area_km2": 104.86
+ },
+ "siverek_yolo_raw": {
+  "fixed": {
+   "thr": 0.4,
+   "hit": false,
+   "iou": null,
+   "cover": null,
+   "rank": null,
+   "n_patches": 0,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0352
+  },
+  "oracle_post_hoc": {
+   "thr": 0.27,
+   "hit": true,
+   "iou": 0.478,
+   "cover": 0.878,
+   "rank": 1,
+   "n_patches": 1,
+   "fa_n": 0,
+   "fa_per_km2": 0.0,
+   "fa_upper95": 0.0352
+  },
+  "n_null_chips": 16,
+  "null_area_km2": 104.86
+ }
+}

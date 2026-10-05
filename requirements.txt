@@ -1,0 +1,10 @@
+# tested with Python 3.12 on macOS 15 (Apple M1, MPS)
+ultralytics==8.4.171
+torch==2.14.1
+torchvision==0.29.1
+numpy==2.5.3
+scipy==1.18.1
+scikit-image==0.26.0
+rasterio==1.5.2
+pillow==12.3.0
+matplotlib==3.11.2

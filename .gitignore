@@ -1,0 +1,10 @@
+data/*
+!data/k_narli.json
+!data/k_siverek.json
+runs/
+*.pt
+__pycache__/
+.venv/
+.DS_Store
+assets/turkey.geojson
+figs/

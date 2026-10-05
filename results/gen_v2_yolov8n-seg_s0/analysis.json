@@ -1,0 +1,134 @@
+{
+ "run": "gen_v2_yolov8n-seg_s0",
+ "threshold": 0.15,
+ "val": {
+  "metrics/precision(B)": 0.9813,
+  "metrics/recall(B)": 0.9494,
+  "metrics/mAP50(B)": 0.9733,
+  "metrics/mAP50-95(B)": 0.8189,
+  "metrics/precision(M)": 0.918,
+  "metrics/recall(M)": 0.8609,
+  "metrics/mAP50(M)": 0.9133,
+  "metrics/mAP50-95(M)": 0.5268,
+  "fitness": 1.3457
+ },
+ "size": {
+  "recall_by_size": {
+   "lt50": {
+    "hit": 355,
+    "n": 374,
+    "recall": 0.9492
+   },
+   "50to150": {
+    "hit": 351,
+    "n": 360,
+    "recall": 0.975
+   },
+   "ge150": {
+    "hit": 505,
+    "n": 510,
+    "recall": 0.9902
+   }
+  },
+  "precision": 0.9798,
+  "recall": 0.9735,
+  "f1": 0.9766
+ },
+ "imgsz": {
+  "narli": {
+   "256": {
+    "hit": true,
+    "iou": 0.799,
+    "cover": 0.886,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "320": {
+    "hit": true,
+    "iou": 0.762,
+    "cover": 0.834,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "384": {
+    "hit": true,
+    "iou": 0.777,
+    "cover": 0.829,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "512": {
+    "hit": true,
+    "iou": 0.754,
+    "cover": 0.775,
+    "rank": 1,
+    "n_patches": 2
+   },
+   "640": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   }
+  },
+  "siverek": {
+   "256": {
+    "hit": true,
+    "iou": 0.364,
+    "cover": 0.878,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "320": {
+    "hit": true,
+    "iou": 0.5,
+    "cover": 0.878,
+    "rank": 1,
+    "n_patches": 2
+   },
+   "384": {
+    "hit": true,
+    "iou": 0.47,
+    "cover": 0.959,
+    "rank": 2,
+    "n_patches": 2
+   },
+   "512": {
+    "hit": true,
+    "iou": 0.49,
+    "cover": 0.959,
+    "rank": 1,
+    "n_patches": 1
+   },
+   "640": {
+    "hit": false,
+    "iou": null,
+    "cover": null,
+    "rank": null,
+    "n_patches": 0
+   }
+  }
+ },
+ "occlude": {
+  "narli": {
+   "none": 0.2011,
+   "dNBR": 0.0,
+   "dlogBAI": 0.0,
+   "dlogA": 0.0
+  },
+  "siverek": {
+   "none": 0.1958,
+   "dNBR": 0.3019,
+   "dlogBAI": 0.0845,
+   "dlogA": 0.0
+  }
+ },
+ "cost": {
+  "params_training_graph": 3263811,
+  "params": 3258259,
+  "gflops_at_imgsz": 4.08,
+  "ms_per_chip_cpu": 41.4,
+  "ms_per_chip_mps": 10.9
+ }
+}
