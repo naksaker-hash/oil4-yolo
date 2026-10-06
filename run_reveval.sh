@@ -2,6 +2,7 @@
 # Evaluates every detector on all real sets once the extra imagery is in;
 # new YOLO runs are picked up as the revision queue finishes them.
 cd "$(dirname "$0")"
+setopt nullglob
 PY=.venv/bin/python
 while [ ! -f runs/fetch2.DONE ]; do sleep 120; done
 for d in zscore rx irmad rf:gen rf:gen_v2; do

@@ -17,7 +17,7 @@ from PIL import Image
 
 from config import DATA, ROOT
 
-OUT = ROOT / "figs"
+OUT = ROOT / "manuscript" / "figs"
 OUT.mkdir(parents=True, exist_ok=True)
 # fixed categorical order, entity bound (dataviz default palette, light mode)
 COL = {"zscore": "#2a78d6", "v1": "#eb6834", "v2": "#1baf7a"}
@@ -384,9 +384,60 @@ def fig_training():
     fig.savefig(OUT / "fig_training.pdf"); fig.savefig(OUT / "fig_training.png", dpi=200)
 
 
+OP_ROWS = [  # (label, detector key in operating_points.json, group)
+    ("z score", "zscore", "base"), ("Reed Xiaoli", "rx", "base"), ("IR-MAD", "irmad", "base"),
+    ("Random forest v1", "rf_gen", "base"), ("Random forest v2", "rf_gen_v2", "base"),
+    ("YOLO26n v1, seed 0", "yolo_gen_yolo26n-seg_s0", "v1"), ("YOLO26n v1, seed 1", "yolo_gen_yolo26n-seg_s1", "v1"),
+    ("YOLO26n v1, seed 2", "yolo_gen_yolo26n-seg_s2", "v1"),
+    ("YOLO26n v2, seed 0", "yolo_gen_v2_yolo26n-seg_s0", "v2"), ("YOLO26n v2, seed 1", "yolo_gen_v2_yolo26n-seg_s1", "v2"),
+    ("YOLO26n v2, seed 2", "yolo_gen_v2_yolo26n-seg_s2", "v2"), ("YOLOv8n v2", "yolo_gen_v2_yolov8n-seg_s0", "v2"),
+    ("YOLO11n v2", "yolo_gen_v2_yolo11n-seg_s0", "v2"),
+    ("YOLO26n, Narlı factors", "yolo_narli_yolo26n-seg_s0", "cross"),
+    ("YOLO26n, Siverek factors", "yolo_siverek_v2_yolo26n-seg_s0", "cross"),
+    ("YOLO26n dr, seed 0", "yolo_gen_dr_yolo26n-seg_s0", "dr"), ("YOLO26n dr, seed 1", "yolo_gen_dr_yolo26n-seg_s1", "dr"),
+    ("YOLO26n dr, seed 2", "yolo_gen_dr_yolo26n-seg_s2", "dr"),
+]
+GCOL = {"base": COL["zscore"], "v1": COL["v1"], "v2": COL["v2"], "cross": "#7a5cc4", "dr": "#b0892a"}
+
+
+def fig_operating():
+    """False alarms on the held out pairs at the highest threshold that
+    detects both spills (matched operating point)."""
+    op = json.load(open(ROOT / "runs" / "revision" / "operating_points.json"))
+    summ = json.load(open(ROOT / "runs" / "revision" / "summary.json"))
+    rows = [r for r in OP_ROWS if r[1] in op]
+    floor = 2e-4
+    fig, a = plt.subplots(figsize=(6.3, 0.22 * len(rows) + 0.9))
+    for i, (lab, key, g) in enumerate(rows):
+        y = len(rows) - 1 - i
+        v = op[key]["both_fa_km2"]
+        if v is None:
+            a.text(floor * 1.1, y, "never detects both", va="center", fontsize=7, color="#777")
+        else:
+            a.plot([max(v, floor)], [y], "o", ms=6, color=GCOL[g], mec="white", mew=0.8, zorder=3)
+            a.text(60, y, "0" if v == 0 else f"{v:.2g}", va="center", ha="right", fontsize=7, color="#333")
+        s = summ[key]
+        k = "synthetic_f1_same_rule" if "synthetic_f1_same_rule" in s else "conventional" if "conventional" in s else "synthetic_f1"
+        f = s[k]
+        if f["narli"]["hit"] and f["siverek"]["hit"]:
+            a.plot([max(f["nullval"]["fa_km2"], floor)], [y], "o", ms=8, mfc="none", mec=GCOL[g], mew=0.9, zorder=2)
+    a.set_yticks(range(len(rows))); a.set_yticklabels([r[0] for r in rows][::-1])
+    a.set_xscale("log"); a.set_xlim(floor * 0.6, 70)
+    a.plot([], [], "o", color="#555", ms=5, label="matched point")
+    a.plot([], [], "o", mfc="none", mec="#555", ms=7, label="fixed point, if both detected")
+    a.legend(loc="lower right", bbox_to_anchor=(0.86, 0.0), frameon=False, fontsize=7)
+    a.set_xticks([floor, 1e-3, 1e-2, 1e-1, 1, 10]); a.set_xticklabels(["0", "0.001", "0.01", "0.1", "1", "10"])
+    a.set_xlabel("False alarms per km$^2$ on 316 held out pairs at the matched operating point")
+    a.grid(axis="x", color="#e5e5e5", lw=0.5); a.set_axisbelow(True)
+    for sp in ("top", "right"):
+        a.spines[sp].set_visible(False)
+    fig.tight_layout()
+    fig.savefig(OUT / "fig_operating.pdf"); fig.savefig(OUT / "fig_operating.png", dpi=200)
+
+
 if __name__ == "__main__":
     import sys
-    todo = sys.argv[1:] or ["fig1", "fig2", "fig3", "fig_map", "fig_workflow", "fig_training"]
+    todo = sys.argv[1:] or ["fig1", "fig2", "fig3", "fig_map", "fig_workflow", "fig_training", "fig_operating"]
     for f in todo:
         globals()[f]()
     print("figures in", OUT)
