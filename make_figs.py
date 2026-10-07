@@ -389,6 +389,7 @@ OP_ROWS = [  # (label, detector key in operating_points.json, group)
     ("Random forest v1", "rf_gen", "base"), ("Random forest v2", "rf_gen_v2", "base"),
     ("YOLO26n v1, seed 0", "yolo_gen_yolo26n-seg_s0", "v1"), ("YOLO26n v1, seed 1", "yolo_gen_yolo26n-seg_s1", "v1"),
     ("YOLO26n v1, seed 2", "yolo_gen_yolo26n-seg_s2", "v1"),
+    ("YOLO26n v1, new dataset", "yolo_gen_d1_yolo26n-seg_s0", "v1"),
     ("YOLO26n v2, seed 0", "yolo_gen_v2_yolo26n-seg_s0", "v2"), ("YOLO26n v2, seed 1", "yolo_gen_v2_yolo26n-seg_s1", "v2"),
     ("YOLO26n v2, seed 2", "yolo_gen_v2_yolo26n-seg_s2", "v2"), ("YOLOv8n v2", "yolo_gen_v2_yolov8n-seg_s0", "v2"),
     ("YOLO11n v2", "yolo_gen_v2_yolo11n-seg_s0", "v2"),
