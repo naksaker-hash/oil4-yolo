@@ -392,6 +392,8 @@ OP_ROWS = [  # (label, detector key in operating_points.json, group)
     ("YOLO26n v2, seed 0", "yolo_gen_v2_yolo26n-seg_s0", "v2"), ("YOLO26n v2, seed 1", "yolo_gen_v2_yolo26n-seg_s1", "v2"),
     ("YOLO26n v2, seed 2", "yolo_gen_v2_yolo26n-seg_s2", "v2"), ("YOLOv8n v2", "yolo_gen_v2_yolov8n-seg_s0", "v2"),
     ("YOLO11n v2", "yolo_gen_v2_yolo11n-seg_s0", "v2"),
+    ("YOLO26n v2, new dataset", "yolo_gen_v2_d1_yolo26n-seg_s0", "v2"),
+    ("YOLO26n v2, native 20 m", "yolo_gen_v2_n20_yolo26n-seg_s0", "v2"),
     ("YOLO26n, Narlı factors", "yolo_narli_yolo26n-seg_s0", "cross"),
     ("YOLO26n, Siverek factors", "yolo_siverek_v2_yolo26n-seg_s0", "cross"),
     ("YOLO26n dr, seed 0", "yolo_gen_dr_yolo26n-seg_s0", "dr"), ("YOLO26n dr, seed 1", "yolo_gen_dr_yolo26n-seg_s1", "dr"),
