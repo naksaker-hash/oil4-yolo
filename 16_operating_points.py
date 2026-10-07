@@ -31,6 +31,8 @@ def main():
         if f.stem in ("physics", "summary", "operating_points", "event_grid"):
             continue
         d = json.load(open(f))
+        if "detector" not in d:
+            continue
         g = np.array(d["grid"])
         ev = {r["file"].split("_")[0]: r for r in d["sets"]["event"] if r["variant"] == "coreg"}
         nv = np.array([r["counts"] for r in d["sets"]["nullval"]], float)

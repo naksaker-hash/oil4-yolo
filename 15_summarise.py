@@ -58,6 +58,8 @@ def main():
         if f.name in ("physics.json", "summary.json", "operating_points.json", "event_grid.json"):
             continue
         d = json.load(open(f))
+        if "detector" not in d:
+            continue
         name = d["detector"]
         res = {"scene_rank_spill_exceeded_by": scene_rank(d["sets"].get("scene", []))}
         for key in [k for k in d["thresholds"] if not k.startswith("_")]:
