@@ -234,12 +234,16 @@ def fig_map():
     from matplotlib.patches import ConnectionPatch
     from config import EVENTS, PLAINS
     val_plains = ("ceylanpinar", "amik_hatay")
-    box_c = (35.0, 41.5, 35.9, 38.4)            # extent of panel c
+    box_c = (35.0, 42.6, 35.9, 38.4)            # extent of panel c
+    fresh_plains = {"bismil": (40.62, 37.80, 41.10, 38.00), "cizre_silopi": (42.00, 37.15, 42.45, 37.35),
+                    "barak": (37.75, 36.85, 38.05, 37.05)}
     pts = {"train": [], "val": []}
     for f in sorted((DATA / "clean").glob("*.npz")):
         m = json.loads(str(np.load(f)["meta"]))
         pl = next((n for n, (a, b, c, d) in PLAINS.items() if a <= m["lon"] <= c and b <= m["lat"] <= d), None)
         pts["val" if pl in val_plains else "train"].append((m["lon"], m["lat"]))
+    pts["fresh"] = [(m["lon"], m["lat"]) for m in
+                    (json.loads(str(np.load(f)["meta"])) for f in sorted((DATA / "fresh").glob("*.npz")))]
     have = lambda n: (ROOT / "assets" / n).exists()
     pipes = [("Kirkuk–Ceyhan pipeline", "pipeline_kirkuk_ceyhan", "-"),
              ("Batman–Dörtyol pipeline", "pipeline_batman_dortyol", "--")]
@@ -297,10 +301,12 @@ def fig_map():
     for n, (a, b, c, d) in PLAINS.items():
         col = COL["v1"] if n in val_plains else "#777"
         ax.add_patch(plt.Rectangle((a, b), c - a, d - b, fill=False, ec=col, lw=1.0))
-    for k, c in [("train", "#777"), ("val", COL["v1"])]:
+    for n, (a, b, c, d) in fresh_plains.items():
+        ax.add_patch(plt.Rectangle((a, b), c - a, d - b, fill=False, ec=COL["v2"], lw=1.0))
+    labels = {"train": "Training", "val": "Validation", "fresh": "Fresh false alarm"}
+    for k, c in [("train", "#777"), ("val", COL["v1"]), ("fresh", COL["v2"])]:
         p = np.array(pts[k])
-        ax.scatter(p[:, 0], p[:, 1], s=2, color=c, lw=0,
-                   label=f"{'Training' if k == 'train' else 'Validation'} chips ({len(p):,})")
+        ax.scatter(p[:, 0], p[:, 1], s=2, color=c, lw=0, label=f"{labels[k]} chips ({len(p):,})")
     for e, lab, dx, dy in [("narli", "Narlı 2018", 0.1, -0.17), ("siverek", "Siverek 2021", -0.09, 0.3)]:
         ev_ = EVENTS[e]
         ax.scatter(ev_["lon"], ev_["lat"], marker="*", s=140, color=COL["zscore"], ec="black", lw=0.6, zorder=5,

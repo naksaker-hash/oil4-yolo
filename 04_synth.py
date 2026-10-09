@@ -2,7 +2,7 @@
 segmentation dataset. Real event and null chips are written alongside as
 the test sets, untouched.
 
-The plume model follows the Siverek measurements: oil multiplies each band's
+The plume model is the one oil3 measured: oil multiplies each band's
 reflectance by a factor k (R' = k R), with k closest to 1 at the plume
 margin and smallest over the thickest coating. Only the post image is
 altered.
@@ -18,22 +18,19 @@ event check. gen is the main experiment.
     python 04_synth.py --regime gen --copies 3
     python 04_synth.py --regime gen --copies 3 --profile v2   # -> data/yolo_gen_v2
 
-v2 was designed AFTER v1 missed the Siverek plume (the real core was darker
-and sharper edged than almost any small v1 plume, and the v1 SWIR prior
-could not reach either event's measured SWIR k). It adds the core and
-margin structure measured at Siverek and widens the SWIR prior. Because it
-was motivated by a test result, v1 and v2 are both reported in the paper.
---ablate returns one v2 property to its v1 setting (sharp, halo, green, swir).
---profile dr is a domain randomised generator set without reference to
-either event (random darkening, independent random factor per band, random
-edge, margin and placement). --native20 implants the 20 m bands at their
-native resolution. A non zero --seed draws an independent dataset.
+v2 was added on 2026-10-03 AFTER v1 missed the Siverek plume (diagnosis:
+real core darker and sharper edged than any small v1 plume, and the v1 SWIR
+prior could not reach either event's measured SWIR k). It encodes the core
+and margin structure oil3 published and widens the SWIR prior, but it was
+motivated by a test result, so v1 and v2 must both be reported.
 
-Details that matter for every profile:
-  labels are pixel-corner exact polygons
-  the stretch encodes zero change as 114 in every channel, the value
+Audit fixes of 2026-10-03, applied to every profile (the pilot v1 model
+trained before them is superseded):
+  labels were shifted half a pixel up and left; now pixel-corner exact
+  the stretch now encodes zero change as 114 in every channel, the value
   ultralytics pads with, so mosaic and translate padding reads as no change
-  validation is spatially held out (two whole plains)
+  rather than as an unlabelled weak darkening
+  validation is spatially held out (two whole plains), not a random slice
   real chips are co-registered (realio.py); raw versions go to test_*_raw
 """
 import argparse
@@ -122,8 +119,28 @@ def core_k(rng, regime, k_meas, profile="v1", off=()):
 BANDS20 = [IB[b] for b in ("B5", "B6", "B7", "B8A", "B11", "B12")]
 
 
+def oil_spectrum(rng):
+    """Reflectance of a full coating for the linear mixing profile (mix): a
+    dark spectrum rising through the visible and near infrared, with the
+    shortwave infrared above it. Ranges bracket the post event medians of
+    both spills (Narli B2 0.05, B8A/B2 3.6, B11/B8A 1.75; Siverek B2 0.01,
+    B8A/B2 9, B11/B8A 1.3), so like v2 it is informed by the test spills."""
+    a = np.exp(rng.uniform(np.log(0.01), np.log(0.12)))
+    r = np.exp(rng.uniform(np.log(1.5), np.log(10.0)))
+    rho = np.zeros(len(BANDS))
+    rho[VNIR] = a * np.linspace(1, r, len(VNIR))
+    rho[IB["B11"]] = rho[IB["B8A"]] * rng.uniform(1.0, 2.0)
+    rho[IB["B12"]] = rho[IB["B11"]] * rng.uniform(0.7, 1.0)
+    return np.clip(rho * np.exp(rng.normal(0, 0.05, len(BANDS))), 0.002, 0.6)
+
+
 def implant(rng, pre, post, regime, k_meas, profile="v1", off=(), native20=False):
     post = post.copy()
+    mixing = profile == "mix"
+    if mixing:
+        # mix keeps every v2 setting and replaces only R' = k R by the
+        # linear mixture R' = (1 - w) R + w R_oil
+        profile = "v2"
     mask = np.zeros((CHIP, CHIP), bool)
     n = rng.choice([0, 1, 1, 1, 2, 3], p=None)
     polys = []
@@ -155,7 +172,7 @@ def implant(rng, pre, post, regime, k_meas, profile="v1", off=(), native20=False
         d = ndi.distance_transform_edt(m)
         wgt = np.clip(d / max(d.max() * rng.uniform(0.3, 0.8), 1), 0, 1)
         # v1 always fades to 0.3 at the edge. v2 also allows a sharp edged
-        # core, the Siverek core being strong up to its boundary.
+        # core, the oil3 Siverek core being strong up to its boundary.
         if profile == "dr":
             floor = rng.uniform(0.2, 1.0)
         else:
@@ -168,8 +185,8 @@ def implant(rng, pre, post, regime, k_meas, profile="v1", off=(), native20=False
             halo &= ~m
             wgt = np.where(halo, rng.uniform(0.05, 0.7), wgt)
         if profile == "v2" and "halo" not in off and rng.random() < 0.5:
-            # weaker oiled margin around the core, not labelled, as measured
-            # at Siverek (core 0.49 ha inside a 2.33 ha extent)
+            # weaker oiled margin around the core, not labelled, as oil3
+            # found (core 0.49 ha inside a 2.33 ha extent)
             halo = ndi.binary_dilation(m, iterations=int(rng.integers(1, 6)))
             halo &= ndi.gaussian_filter(rng.standard_normal(m.shape), 2) > -0.3
             halo &= ~m
@@ -182,7 +199,11 @@ def implant(rng, pre, post, regime, k_meas, profile="v1", off=(), native20=False
             # 2 x 2 footprint, then resampled to 10 m like the data
             w20 = wgt.reshape(CHIP // 2, 2, CHIP // 2, 2).mean((1, 3))
             att[BANDS20] = ndi.zoom(w20, 2, order=1)[None]
-        post *= 1 - att * (1 - k[:, None, None])
+        if mixing:
+            rho_oil = oil_spectrum(rng)
+            post = post * (1 - att) + att * rho_oil[:, None, None]
+        else:
+            post *= 1 - att * (1 - k[:, None, None])
         mask |= m
         polys.append(m)
     post += rng.normal(0, 0.002, post.shape).astype(np.float32)
@@ -232,7 +253,7 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--native20", action="store_true",
                     help="implant the 20 m bands at their native resolution")
-    ap.add_argument("--profile", default="v1", choices=["v1", "v2", "dr"],
+    ap.add_argument("--profile", default="v1", choices=["v1", "v2", "dr", "mix"],
                     help="v2 adds sharp edged cores and an unlabelled oiled margin")
     ap.add_argument("--ablate", default="", choices=["", "sharp", "halo", "green", "swir"],
                     help="v2 with one ingredient switched back to v1 behaviour")

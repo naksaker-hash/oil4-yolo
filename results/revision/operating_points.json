@@ -153,6 +153,29 @@
    "siverek": true
   }
  },
+ "yolo_gen_mix_yolo26n-seg_s0": {
+  "narli_spill": 0.6353,
+  "narli_null_max": 0.0885,
+  "narli_margin": 0.5468,
+  "siverek_spill": 0.0,
+  "siverek_null_max": 0.0976,
+  "siverek_margin": -0.0976,
+  "both_thr": null,
+  "both_fa_km2": null,
+  "both_fa_n": null,
+  "null_cal_0.01": {
+   "thr": 0.14,
+   "fa_km2": 0.0082,
+   "narli": true,
+   "siverek": false
+  },
+  "null_cal_0.05": {
+   "thr": 0.02,
+   "fa_km2": 0.0439,
+   "narli": true,
+   "siverek": false
+  }
+ },
  "yolo_gen_v2_d1_yolo26n-seg_s0": {
   "narli_spill": 0.8289,
   "narli_null_max": 0.0648,

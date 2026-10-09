@@ -70,9 +70,18 @@ All three v2 seeds rank both spills first in their scenes; seed 2 misses them on
 | `12_train_rf.py` | random forest pixel baseline trained on the same synthetic data |
 | `13_revision_eval.py` | every detector on every real set, counts on a threshold grid |
 | `14_physics.py` | background corrected attenuation, 20 m check, multiplicative versus mixing fit |
-| `run_revision.sh`, `run_fetch2.sh`, `run_reveval.sh` | the queues that produced the revision results |
+| `15_summarise.py`, `16_operating_points.py`, `17_event_grid.py` | summaries, matched and null calibrated operating points, hits on a threshold grid |
+| `18_coverage.py` | coverage of the measured spill attenuation by each generator, with a grid of cut-offs |
+| `19_fetch_fresh.py` | 150 fresh clean pairs from three plains never used (Bismil, Cizre, Barak), for false alarms only |
+| `20_split_calibration.py` | null calibration on one held out plain, false alarms on the other |
+| `21_revisit.py` | how often a clear pair brackets a summer day within a week, per plain |
+| `22_implant_test.py` | semi real test: measured spill attenuation implanted into the held out pairs, detection by size |
+| `23_fresh_eval.py` | every detector on the fresh pairs at its fixed, matched and null calibrated thresholds |
+| `run_revision.sh`, `run_fetch2.sh`, `run_reveval.sh`, `run_fresh.sh`, `run_mix_eval.sh` | the queues that produced the revision results |
 
-`data/manifest.csv` lists every clean training and validation chip with its
+`04_synth.py --profile mix` is the linear mixing variant (v2 settings, a dark oil spectrum mixed into the background). Results of the second revision are in `results/revision` (`split_calibration.json`, `implant_test.json`, `coverage_grid.json`, `revisit.json`) and `results/revision_fresh`.
+
+`data/manifest.csv` lists every clean training, validation and fresh (`split` = `fresh`) chip with its
 plain, location, tile and Sentinel-2 pre and post product identifiers, so the
 training set can be rebuilt exactly. Training uses `deterministic=True`, but
 GPU and library versions can still change results slightly, which is why
@@ -80,7 +89,7 @@ several seeds are reported.
 
 ## Trained weights
 
-The `best.pt` of all twelve runs are attached to the [release](../../releases) of this repository.
+The `best.pt` of every run is attached to the [releases](../../releases) of this repository: the twelve original runs to v1.0, and the other seventeen (domain randomised seeds, ablation seeds 1 and 2, redrawn datasets, native 20 m, linear mixing and the two cross event runs) to v1.1.
 
 ## Data and licences
 

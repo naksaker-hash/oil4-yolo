@@ -1,0 +1,733 @@
+{
+ "irmad": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.6809,
+   "amik_hatay": 1.2815
+  }
+ },
+ "rf_gen": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  }
+ },
+ "rf_gen_v2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 1.4061,
+   "amik_hatay": 1.2487
+  }
+ },
+ "rx": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 1.1502,
+   "amik_hatay": 0.9542
+  },
+  "cal_ceylanpinar": {
+   "thr": 4342.56,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0039,
+   "narli": false,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 3275.64,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0145,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_d1_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0068,
+   "narli": false,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0145,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_dr_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.22,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0106,
+   "narli": false,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.24,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0068,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_dr_yolo26n-seg_s1": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.12,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0164,
+   "narli": false,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.2,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0077,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_dr_yolo26n-seg_s2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0666,
+   "amik_hatay": 0.0792
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.18,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0135,
+   "narli": false,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.24,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0077,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_mix_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.22,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0058,
+   "narli": true,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.12,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0126,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_v2_d1_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.001,
+   "amik_hatay": 0.001
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.08,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0077,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0116,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_n20_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0212,
+   "amik_hatay": 0.0212
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.38,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.34,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0116,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_v2_nogreen_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0019,
+   "amik_hatay": 0.001
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.08,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0058,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.06,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0126,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_nogreen_yolo26n-seg_s1": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.001,
+   "amik_hatay": 0.0
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.08,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0106,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_nogreen_yolo26n-seg_s2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0019,
+   "amik_hatay": 0.0029
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.1,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0048,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.08,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0106,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_nohalo_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0029,
+   "narli": true,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.02,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0126,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_v2_nohalo_yolo26n-seg_s1": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.04,
+   "fa_cal": 0.0068,
+   "fa_other": 0.0126,
+   "narli": true,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.06,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0058,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_v2_nohalo_yolo26n-seg_s2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0048,
+   "amik_hatay": 0.0058
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.04,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0097,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_nosharp_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0019,
+   "amik_hatay": 0.0029
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.08,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0097,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.08,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0097,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_nosharp_yolo26n-seg_s1": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0019,
+   "amik_hatay": 0.0019
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0097,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0097,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_nosharp_yolo26n-seg_s2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0029,
+   "amik_hatay": 0.0
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.16,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0019,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.06,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0222,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_noswir_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0019,
+   "amik_hatay": 0.0
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.04,
+   "fa_cal": 0.0058,
+   "fa_other": 0.0058,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.02,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0193,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_noswir_yolo26n-seg_s1": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.04,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0068,
+   "narli": false,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.02,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0145,
+   "narli": false,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_noswir_yolo26n-seg_s2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.001,
+   "amik_hatay": 0.0
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.12,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0048,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0068,
+   "fa_other": 0.0251,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo11n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0029,
+   "amik_hatay": 0.001
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0068,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0145,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0,
+   "amik_hatay": 0.0
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0068,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0164,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo26n-seg_s1": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.001,
+   "amik_hatay": 0.0
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0106,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.08,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0077,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo26n-seg_s2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0039,
+   "amik_hatay": 0.0058
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0155,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.08,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolov8n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0039,
+   "amik_hatay": 0.0029
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0058,
+   "narli": true,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0116,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_yolo26n-seg_s1": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0164,
+   "amik_hatay": 0.0135
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.04,
+   "fa_cal": 0.0068,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0068,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_yolo26n-seg_s2": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0106,
+   "amik_hatay": 0.0116
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.06,
+   "fa_cal": 0.0068,
+   "fa_other": 0.0097,
+   "narli": true,
+   "siverek": false
+  },
+  "cal_amik_hatay": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0068,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_narli_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0,
+   "amik_hatay": 0.001
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.08,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.08,
+   "fa_cal": 0.0087,
+   "fa_other": 0.0087,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_siverek_v2_yolo26n-seg_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0029,
+   "amik_hatay": 0.0
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.08,
+   "fa_cal": 0.0097,
+   "fa_other": 0.0019,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.02,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0251,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "zscore": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.3486,
+   "amik_hatay": 0.2762
+  },
+  "cal_amik_hatay": {
+   "thr": 12.75,
+   "fa_cal": 0.0077,
+   "fa_other": 0.0222,
+   "narli": false,
+   "siverek": false
+  }
+ }
+}
