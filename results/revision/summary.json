@@ -1,0 +1,3654 @@
+{
+ "irmad": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 28,
+   "siverek": 29
+  },
+  "conventional": {
+   "thr": 29.588,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 4.0436,
+    "ci": [
+     3.1138,
+     5.0215
+    ],
+    "fa": 583
+   },
+   "nullval": {
+    "fa_km2": 17.115,
+    "ci": [
+     15.534,
+     18.6882
+    ],
+    "fa": 35444
+   },
+   "burn": {
+    "fa_km2": 17.5419,
+    "ci": [
+     14.5073,
+     20.6453
+    ],
+    "fa": 9197,
+    "at_fire": "80/80"
+   },
+   "shadow": {
+    "fa_km2": 16.2048,
+    "ci": [
+     8.0708,
+     25.1778
+    ],
+    "fa": 1062,
+    "on_shadow": 26
+   },
+   "later_hits": []
+  }
+ },
+ "rf_gen": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 39,
+   "siverek": 0
+  },
+  "synthetic_f1": {
+   "thr": 0.94,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.411,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 2.1293,
+    "ci": [
+     1.3384,
+     3.0034
+    ],
+    "fa": 307
+   },
+   "nullval": {
+    "fa_km2": 1.4979,
+    "ci": [
+     1.2168,
+     1.7891
+    ],
+    "fa": 3102
+   },
+   "burn": {
+    "fa_km2": 6.7902,
+    "ci": [
+     5.2602,
+     8.419
+    ],
+    "fa": 3560,
+    "at_fire": "77/80"
+   },
+   "shadow": {
+    "fa_km2": 7.3395,
+    "ci": [
+     4.1351,
+     11.2766
+    ],
+    "fa": 481,
+    "on_shadow": 129
+   },
+   "later_hits": []
+  }
+ },
+ "rf_gen_v2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 7,
+   "siverek": 4
+  },
+  "synthetic_f1": {
+   "thr": 0.8,
+   "narli": {
+    "hit": true,
+    "iou": 0.731,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 3.669,
+    "ci": [
+     2.4345,
+     5.1882
+    ],
+    "fa": 529
+   },
+   "nullval": {
+    "fa_km2": 1.3511,
+    "ci": [
+     1.1328,
+     1.5689
+    ],
+    "fa": 2798
+   },
+   "burn": {
+    "fa_km2": 2.8763,
+    "ci": [
+     2.2354,
+     3.6068
+    ],
+    "fa": 1508,
+    "at_fire": "79/80"
+   },
+   "shadow": {
+    "fa_km2": 3.8147,
+    "ci": [
+     2.2583,
+     5.5695
+    ],
+    "fa": 250,
+    "on_shadow": 71
+   },
+   "later_hits": [
+    "narli_2018-07-25",
+    "siverek_2021-08-25",
+    "siverek_2021-08-30",
+    "siverek_2021-09-04",
+    "siverek_2021-09-09",
+    "siverek_2021-09-14",
+    "siverek_2021-09-19"
+   ]
+  }
+ },
+ "rx": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 24,
+   "siverek": 1
+  },
+  "conventional": {
+   "thr": 16.266,
+   "narli": {
+    "hit": true,
+    "iou": 0.769,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 4.4667,
+    "ci": [
+     3.6968,
+     5.3338
+    ],
+    "fa": 644
+   },
+   "nullval": {
+    "fa_km2": 5.7896,
+    "ci": [
+     5.4965,
+     6.09
+    ],
+    "fa": 11990
+   },
+   "burn": {
+    "fa_km2": 5.8918,
+    "ci": [
+     5.1975,
+     6.6243
+    ],
+    "fa": 3089,
+    "at_fire": "76/80"
+   },
+   "shadow": {
+    "fa_km2": 5.0201,
+    "ci": [
+     3.83,
+     6.3019
+    ],
+    "fa": 329,
+    "on_shadow": 57
+   },
+   "later_hits": [
+    "siverek_2021-08-20",
+    "siverek_2021-08-25",
+    "siverek_2021-08-30",
+    "siverek_2021-09-04",
+    "siverek_2021-09-09",
+    "siverek_2021-09-14",
+    "siverek_2021-09-19"
+   ]
+  },
+  "synthetic_f1": {
+   "thr": 258.97,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.449,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.2289,
+    "ci": [
+     0.0971,
+     0.3953
+    ],
+    "fa": 33
+   },
+   "nullval": {
+    "fa_km2": 0.352,
+    "ci": [
+     0.3023,
+     0.4037
+    ],
+    "fa": 729
+   },
+   "burn": {
+    "fa_km2": 0.4807,
+    "ci": [
+     0.3643,
+     0.6046
+    ],
+    "fa": 252,
+    "at_fire": "39/80"
+   },
+   "shadow": {
+    "fa_km2": 0.2289,
+    "ci": [
+     0.0916,
+     0.412
+    ],
+    "fa": 15,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  }
+ },
+ "yolo_gen_d1_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 18,
+   "siverek": 9
+  },
+  "synthetic_f1": {
+   "thr": 0.2,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0229,
+    "ci": [
+     0.0095,
+     0.0381
+    ],
+    "fa": 12,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0916,
+    "ci": [
+     0.0,
+     0.2289
+    ],
+    "fa": 6,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.2,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0229,
+    "ci": [
+     0.0095,
+     0.0381
+    ],
+    "fa": 12,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0916,
+    "ci": [
+     0.0,
+     0.2289
+    ],
+    "fa": 6,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  },
+  "ece": 0.1606
+ },
+ "yolo_gen_dr_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 38,
+   "siverek": 36
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0208,
+    "ci": [
+     0.0,
+     0.0486
+    ],
+    "fa": 3
+   },
+   "nullval": {
+    "fa_km2": 0.0053,
+    "ci": [
+     0.0024,
+     0.0087
+    ],
+    "fa": 11
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0229
+    ],
+    "fa": 7,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0305,
+    "ci": [
+     0.0,
+     0.0763
+    ],
+    "fa": 2,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0208,
+    "ci": [
+     0.0,
+     0.0486
+    ],
+    "fa": 3
+   },
+   "nullval": {
+    "fa_km2": 0.0053,
+    "ci": [
+     0.0024,
+     0.0087
+    ],
+    "fa": 11
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0229
+    ],
+    "fa": 7,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0305,
+    "ci": [
+     0.0,
+     0.0763
+    ],
+    "fa": 2,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.1966
+ },
+ "yolo_gen_dr_yolo26n-seg_s1": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 34,
+   "siverek": 35
+  },
+  "synthetic_f1": {
+   "thr": 0.25,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0208,
+    "ci": [
+     0.0,
+     0.0555
+    ],
+    "fa": 3
+   },
+   "nullval": {
+    "fa_km2": 0.0077,
+    "ci": [
+     0.0039,
+     0.0121
+    ],
+    "fa": 16
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0038,
+     0.021
+    ],
+    "fa": 6,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0763,
+    "ci": [
+     0.0153,
+     0.1678
+    ],
+    "fa": 5,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.25,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0208,
+    "ci": [
+     0.0,
+     0.0555
+    ],
+    "fa": 3
+   },
+   "nullval": {
+    "fa_km2": 0.0077,
+    "ci": [
+     0.0039,
+     0.0121
+    ],
+    "fa": 16
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0038,
+     0.021
+    ],
+    "fa": 6,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0763,
+    "ci": [
+     0.0153,
+     0.1678
+    ],
+    "fa": 5,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.2011
+ },
+ "yolo_gen_dr_yolo26n-seg_s2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 27,
+   "siverek": 13
+  },
+  "synthetic_f1": {
+   "thr": 0.25,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0277,
+    "ci": [
+     0.0,
+     0.0624
+    ],
+    "fa": 4
+   },
+   "nullval": {
+    "fa_km2": 0.0077,
+    "ci": [
+     0.0043,
+     0.0116
+    ],
+    "fa": 16
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0248
+    ],
+    "fa": 7,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0916,
+    "ci": [
+     0.0305,
+     0.1678
+    ],
+    "fa": 6,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.25,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0277,
+    "ci": [
+     0.0,
+     0.0624
+    ],
+    "fa": 4
+   },
+   "nullval": {
+    "fa_km2": 0.0077,
+    "ci": [
+     0.0043,
+     0.0116
+    ],
+    "fa": 16
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0248
+    ],
+    "fa": 7,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0916,
+    "ci": [
+     0.0305,
+     0.1678
+    ],
+    "fa": 6,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.1903
+ },
+ "yolo_gen_v2_d1_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 1
+  },
+  "synthetic_f1": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.753,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.443,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0039,
+    "ci": [
+     0.0014,
+     0.0068
+    ],
+    "fa": 8
+   },
+   "burn": {
+    "fa_km2": 0.0248,
+    "ci": [
+     0.0076,
+     0.0515
+    ],
+    "fa": 13,
+    "at_fire": "5/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1678,
+    "ci": [
+     0.0458,
+     0.3204
+    ],
+    "fa": 11,
+    "on_shadow": 3
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.753,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.443,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0039,
+    "ci": [
+     0.0014,
+     0.0068
+    ],
+    "fa": 8
+   },
+   "burn": {
+    "fa_km2": 0.0248,
+    "ci": [
+     0.0076,
+     0.0515
+    ],
+    "fa": 13,
+    "at_fire": "5/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1678,
+    "ci": [
+     0.0458,
+     0.3204
+    ],
+    "fa": 11,
+    "on_shadow": 3
+   },
+   "later_hits": []
+  },
+  "ece": 0.1618
+ },
+ "yolo_gen_v2_n20_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 1,
+   "siverek": 6
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.773,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0277,
+    "ci": [
+     0.0,
+     0.0624
+    ],
+    "fa": 4
+   },
+   "nullval": {
+    "fa_km2": 0.0101,
+    "ci": [
+     0.0063,
+     0.0145
+    ],
+    "fa": 21
+   },
+   "burn": {
+    "fa_km2": 0.021,
+    "ci": [
+     0.0076,
+     0.0362
+    ],
+    "fa": 11,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1678,
+    "ci": [
+     0.061,
+     0.2899
+    ],
+    "fa": 11,
+    "on_shadow": 3
+   },
+   "later_hits": [
+    "narli_2018-07-25"
+   ]
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.773,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0277,
+    "ci": [
+     0.0,
+     0.0624
+    ],
+    "fa": 4
+   },
+   "nullval": {
+    "fa_km2": 0.0101,
+    "ci": [
+     0.0063,
+     0.0145
+    ],
+    "fa": 21
+   },
+   "burn": {
+    "fa_km2": 0.021,
+    "ci": [
+     0.0076,
+     0.0362
+    ],
+    "fa": 11,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1678,
+    "ci": [
+     0.061,
+     0.2899
+    ],
+    "fa": 11,
+    "on_shadow": 3
+   },
+   "later_hits": [
+    "narli_2018-07-25"
+   ]
+  },
+  "ece": 0.1407
+ },
+ "yolo_gen_v2_nogreen_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 1
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.777,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.489,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0191,
+    "ci": [
+     0.0019,
+     0.0477
+    ],
+    "fa": 10,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1831,
+    "ci": [
+     0.0458,
+     0.351
+    ],
+    "fa": 12,
+    "on_shadow": 6
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.777,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.489,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0191,
+    "ci": [
+     0.0019,
+     0.0477
+    ],
+    "fa": 10,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1831,
+    "ci": [
+     0.0458,
+     0.351
+    ],
+    "fa": 12,
+    "on_shadow": 6
+   },
+   "later_hits": []
+  },
+  "ece": 0.1512
+ },
+ "yolo_gen_v2_nogreen_yolo26n-seg_s1": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 2
+  },
+  "synthetic_f1": {
+   "thr": 0.45,
+   "narli": {
+    "hit": true,
+    "iou": 0.727,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.433,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0005,
+    "ci": [
+     0.0,
+     0.0014
+    ],
+    "fa": 1
+   },
+   "burn": {
+    "fa_km2": 0.0057,
+    "ci": [
+     0.0,
+     0.0153
+    ],
+    "fa": 3,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.061,
+    "ci": [
+     0.0,
+     0.1526
+    ],
+    "fa": 4,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.45,
+   "narli": {
+    "hit": true,
+    "iou": 0.727,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.433,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0005,
+    "ci": [
+     0.0,
+     0.0014
+    ],
+    "fa": 1
+   },
+   "burn": {
+    "fa_km2": 0.0057,
+    "ci": [
+     0.0,
+     0.0153
+    ],
+    "fa": 3,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.061,
+    "ci": [
+     0.0,
+     0.1526
+    ],
+    "fa": 4,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.1504
+ },
+ "yolo_gen_v2_nogreen_yolo26n-seg_s2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 6
+  },
+  "synthetic_f1": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.755,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.437,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0139,
+    "ci": [
+     0.0,
+     0.0347
+    ],
+    "fa": 2
+   },
+   "nullval": {
+    "fa_km2": 0.0029,
+    "ci": [
+     0.0005,
+     0.0063
+    ],
+    "fa": 6
+   },
+   "burn": {
+    "fa_km2": 0.021,
+    "ci": [
+     0.0057,
+     0.0401
+    ],
+    "fa": 11,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1526,
+    "ci": [
+     0.061,
+     0.2441
+    ],
+    "fa": 10,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.755,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.437,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0139,
+    "ci": [
+     0.0,
+     0.0347
+    ],
+    "fa": 2
+   },
+   "nullval": {
+    "fa_km2": 0.0029,
+    "ci": [
+     0.0005,
+     0.0063
+    ],
+    "fa": 6
+   },
+   "burn": {
+    "fa_km2": 0.021,
+    "ci": [
+     0.0057,
+     0.0401
+    ],
+    "fa": 11,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1526,
+    "ci": [
+     0.061,
+     0.2441
+    ],
+    "fa": 10,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  },
+  "ece": 0.1576
+ },
+ "yolo_gen_v2_nohalo_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 8,
+   "siverek": 16
+  },
+  "synthetic_f1": {
+   "thr": 0.15,
+   "narli": {
+    "hit": true,
+    "iou": 0.8,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0014,
+    "ci": [
+     0.0,
+     0.0034
+    ],
+    "fa": 3
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0019,
+     0.0229
+    ],
+    "fa": 6,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1221,
+    "ci": [
+     0.0458,
+     0.1984
+    ],
+    "fa": 8,
+    "on_shadow": 1
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.15,
+   "narli": {
+    "hit": true,
+    "iou": 0.8,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0014,
+    "ci": [
+     0.0,
+     0.0034
+    ],
+    "fa": 3
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0019,
+     0.0229
+    ],
+    "fa": 6,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1221,
+    "ci": [
+     0.0458,
+     0.1984
+    ],
+    "fa": 8,
+    "on_shadow": 1
+   },
+   "later_hits": []
+  },
+  "ece": 0.1258
+ },
+ "yolo_gen_v2_nohalo_yolo26n-seg_s1": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 6,
+   "siverek": 16
+  },
+  "synthetic_f1": {
+   "thr": 0.45,
+   "narli": {
+    "hit": true,
+    "iou": 0.636,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0005,
+    "ci": [
+     0.0,
+     0.0015
+    ],
+    "fa": 1
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0248
+    ],
+    "fa": 7,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0458,
+    "ci": [
+     0.0153,
+     0.0916
+    ],
+    "fa": 3,
+    "on_shadow": 1
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.45,
+   "narli": {
+    "hit": true,
+    "iou": 0.636,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0005,
+    "ci": [
+     0.0,
+     0.0015
+    ],
+    "fa": 1
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0248
+    ],
+    "fa": 7,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0458,
+    "ci": [
+     0.0153,
+     0.0916
+    ],
+    "fa": 3,
+    "on_shadow": 1
+   },
+   "later_hits": []
+  },
+  "ece": 0.1238
+ },
+ "yolo_gen_v2_nohalo_yolo26n-seg_s2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 8,
+   "siverek": 4
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0153,
+    "ci": [
+     0.0038,
+     0.0305
+    ],
+    "fa": 8,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0458,
+    "ci": [
+     0.0,
+     0.1221
+    ],
+    "fa": 3,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0153,
+    "ci": [
+     0.0038,
+     0.0305
+    ],
+    "fa": 8,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0458,
+    "ci": [
+     0.0,
+     0.1221
+    ],
+    "fa": 3,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.1202
+ },
+ "yolo_gen_v2_nosharp_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 1
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.739,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.495,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0034,
+    "ci": [
+     0.001,
+     0.0063
+    ],
+    "fa": 7
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0,
+     0.0286
+    ],
+    "fa": 6,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0458,
+    "ci": [
+     0.0,
+     0.0916
+    ],
+    "fa": 3,
+    "on_shadow": 1
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.739,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.495,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0034,
+    "ci": [
+     0.001,
+     0.0063
+    ],
+    "fa": 7
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0,
+     0.0286
+    ],
+    "fa": 6,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0458,
+    "ci": [
+     0.0,
+     0.0916
+    ],
+    "fa": 3,
+    "on_shadow": 1
+   },
+   "later_hits": []
+  },
+  "ece": 0.1856
+ },
+ "yolo_gen_v2_nosharp_yolo26n-seg_s1": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 1
+  },
+  "synthetic_f1": {
+   "thr": 0.2,
+   "narli": {
+    "hit": true,
+    "iou": 0.715,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.506,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0034,
+    "ci": [
+     0.001,
+     0.0058
+    ],
+    "fa": 7
+   },
+   "burn": {
+    "fa_km2": 0.0286,
+    "ci": [
+     0.0076,
+     0.0591
+    ],
+    "fa": 15,
+    "at_fire": "4/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1373,
+    "ci": [
+     0.0,
+     0.3357
+    ],
+    "fa": 9,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.2,
+   "narli": {
+    "hit": true,
+    "iou": 0.715,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.506,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0034,
+    "ci": [
+     0.001,
+     0.0058
+    ],
+    "fa": 7
+   },
+   "burn": {
+    "fa_km2": 0.0286,
+    "ci": [
+     0.0076,
+     0.0591
+    ],
+    "fa": 15,
+    "at_fire": "4/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1373,
+    "ci": [
+     0.0,
+     0.3357
+    ],
+    "fa": 9,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.1919
+ },
+ "yolo_gen_v2_nosharp_yolo26n-seg_s2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 1
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.767,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.569,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0039,
+    "ci": [
+     0.001,
+     0.0072
+    ],
+    "fa": 8
+   },
+   "burn": {
+    "fa_km2": 0.0153,
+    "ci": [
+     0.0019,
+     0.0324
+    ],
+    "fa": 8,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.061,
+    "ci": [
+     0.0,
+     0.1373
+    ],
+    "fa": 4,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.767,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.569,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0039,
+    "ci": [
+     0.001,
+     0.0072
+    ],
+    "fa": 8
+   },
+   "burn": {
+    "fa_km2": 0.0153,
+    "ci": [
+     0.0019,
+     0.0324
+    ],
+    "fa": 8,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.061,
+    "ci": [
+     0.0,
+     0.1373
+    ],
+    "fa": 4,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.1848
+ },
+ "yolo_gen_v2_noswir_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 1,
+   "siverek": 2
+  },
+  "synthetic_f1": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.864,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0019,
+     0.0229
+    ],
+    "fa": 6,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0763,
+    "ci": [
+     0.0153,
+     0.1526
+    ],
+    "fa": 5,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.864,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0019,
+     0.0229
+    ],
+    "fa": 6,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0763,
+    "ci": [
+     0.0153,
+     0.1526
+    ],
+    "fa": 5,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.1965
+ },
+ "yolo_gen_v2_noswir_yolo26n-seg_s1": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 22,
+   "siverek": 2
+  },
+  "synthetic_f1": {
+   "thr": 0.15,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.471,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0324,
+    "ci": [
+     0.0153,
+     0.0534
+    ],
+    "fa": 17,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1373,
+    "ci": [
+     0.0458,
+     0.2441
+    ],
+    "fa": 9,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.15,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.471,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0324,
+    "ci": [
+     0.0153,
+     0.0534
+    ],
+    "fa": 17,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1373,
+    "ci": [
+     0.0458,
+     0.2441
+    ],
+    "fa": 9,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  },
+  "ece": 0.1719
+ },
+ "yolo_gen_v2_noswir_yolo26n-seg_s2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 2,
+   "siverek": 0
+  },
+  "synthetic_f1": {
+   "thr": 0.3,
+   "narli": {
+    "hit": true,
+    "iou": 0.735,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.43,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0248,
+    "ci": [
+     0.0095,
+     0.0439
+    ],
+    "fa": 13,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.2289,
+    "ci": [
+     0.0916,
+     0.3815
+    ],
+    "fa": 15,
+    "on_shadow": 6
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.3,
+   "narli": {
+    "hit": true,
+    "iou": 0.735,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.43,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0248,
+    "ci": [
+     0.0095,
+     0.0439
+    ],
+    "fa": 13,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.2289,
+    "ci": [
+     0.0916,
+     0.3815
+    ],
+    "fa": 15,
+    "on_shadow": 6
+   },
+   "later_hits": []
+  },
+  "ece": 0.1686
+ },
+ "yolo_gen_v2_yolo11n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 3
+  },
+  "synthetic_f1": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.594,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.448,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0139,
+    "ci": [
+     0.0,
+     0.0416
+    ],
+    "fa": 2
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0019,
+     0.0267
+    ],
+    "fa": 6,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1678,
+    "ci": [
+     0.0305,
+     0.3357
+    ],
+    "fa": 11,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.594,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.448,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0139,
+    "ci": [
+     0.0,
+     0.0416
+    ],
+    "fa": 2
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0114,
+    "ci": [
+     0.0019,
+     0.0267
+    ],
+    "fa": 6,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1678,
+    "ci": [
+     0.0305,
+     0.3357
+    ],
+    "fa": 11,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.162
+ },
+ "yolo_gen_v2_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 1
+  },
+  "synthetic_f1": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.712,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.495,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0191,
+    "ci": [
+     0.0057,
+     0.0381
+    ],
+    "fa": 10,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1831,
+    "ci": [
+     0.0458,
+     0.351
+    ],
+    "fa": 12,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.25,
+   "narli": {
+    "hit": true,
+    "iou": 0.712,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.495,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0005,
+     0.0039
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0191,
+    "ci": [
+     0.0057,
+     0.0381
+    ],
+    "fa": 10,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1831,
+    "ci": [
+     0.0458,
+     0.351
+    ],
+    "fa": 12,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.1851
+ },
+ "yolo_gen_v2_yolo26n-seg_s1": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 0
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.549,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.505,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0005,
+    "ci": [
+     0.0,
+     0.0019
+    ],
+    "fa": 1
+   },
+   "burn": {
+    "fa_km2": 0.0038,
+    "ci": [
+     0.0,
+     0.0114
+    ],
+    "fa": 2,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.061,
+    "ci": [
+     0.0153,
+     0.1068
+    ],
+    "fa": 4,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.549,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.505,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0005,
+    "ci": [
+     0.0,
+     0.0019
+    ],
+    "fa": 1
+   },
+   "burn": {
+    "fa_km2": 0.0038,
+    "ci": [
+     0.0,
+     0.0114
+    ],
+    "fa": 2,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.061,
+    "ci": [
+     0.0153,
+     0.1068
+    ],
+    "fa": 4,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.1683
+ },
+ "yolo_gen_v2_yolo26n-seg_s2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 9,
+   "siverek": 4
+  },
+  "synthetic_f1": {
+   "thr": 0.4,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0095,
+    "ci": [
+     0.0,
+     0.0229
+    ],
+    "fa": 5,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1221,
+    "ci": [
+     0.0153,
+     0.2441
+    ],
+    "fa": 8,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.4,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0095,
+    "ci": [
+     0.0,
+     0.0229
+    ],
+    "fa": 5,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1221,
+    "ci": [
+     0.0153,
+     0.2441
+    ],
+    "fa": 8,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.1584
+ },
+ "yolo_gen_v2_yolov8n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 8,
+   "siverek": 5
+  },
+  "synthetic_f1": {
+   "thr": 0.15,
+   "narli": {
+    "hit": true,
+    "iou": 0.777,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.47,
+    "rank": 2,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0048,
+    "ci": [
+     0.0024,
+     0.0077
+    ],
+    "fa": 10
+   },
+   "burn": {
+    "fa_km2": 0.0267,
+    "ci": [
+     0.0095,
+     0.0496
+    ],
+    "fa": 14,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0305,
+    "ci": [
+     0.0,
+     0.0763
+    ],
+    "fa": 2,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.15,
+   "narli": {
+    "hit": true,
+    "iou": 0.777,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.47,
+    "rank": 2,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0048,
+    "ci": [
+     0.0024,
+     0.0077
+    ],
+    "fa": 10
+   },
+   "burn": {
+    "fa_km2": 0.0267,
+    "ci": [
+     0.0095,
+     0.0496
+    ],
+    "fa": 14,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0305,
+    "ci": [
+     0.0,
+     0.0763
+    ],
+    "fa": 2,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.1543
+ },
+ "yolo_gen_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 12,
+   "siverek": 25
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0248
+    ],
+    "fa": 7,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0763,
+    "ci": [
+     0.0,
+     0.1678
+    ],
+    "fa": 5,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0248
+    ],
+    "fa": 7,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0763,
+    "ci": [
+     0.0,
+     0.1678
+    ],
+    "fa": 5,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.123
+ },
+ "yolo_gen_yolo26n-seg_s1": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 12,
+   "siverek": 9
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0076,
+    "ci": [
+     0.0019,
+     0.0153
+    ],
+    "fa": 4,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1068,
+    "ci": [
+     0.0,
+     0.2289
+    ],
+    "fa": 7,
+    "on_shadow": 3
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0076,
+    "ci": [
+     0.0019,
+     0.0153
+    ],
+    "fa": 4,
+    "at_fire": "1/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1068,
+    "ci": [
+     0.0,
+     0.2289
+    ],
+    "fa": 7,
+    "on_shadow": 3
+   },
+   "later_hits": []
+  },
+  "ece": 0.1236
+ },
+ "yolo_gen_yolo26n-seg_s2": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 11,
+   "siverek": 11
+  },
+  "synthetic_f1": {
+   "thr": 0.3,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0268
+    ],
+    "fa": 7,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0916,
+    "ci": [
+     0.0,
+     0.2289
+    ],
+    "fa": 6,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.3,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": false,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0024,
+    "ci": [
+     0.0005,
+     0.0048
+    ],
+    "fa": 5
+   },
+   "burn": {
+    "fa_km2": 0.0134,
+    "ci": [
+     0.0038,
+     0.0268
+    ],
+    "fa": 7,
+    "at_fire": "2/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0916,
+    "ci": [
+     0.0,
+     0.2289
+    ],
+    "fa": 6,
+    "on_shadow": 2
+   },
+   "later_hits": []
+  },
+  "ece": 0.127
+ },
+ "yolo_narli_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 0
+  },
+  "synthetic_f1": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.525,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.426,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0014,
+    "ci": [
+     0.0,
+     0.0034
+    ],
+    "fa": 3
+   },
+   "burn": {
+    "fa_km2": 0.021,
+    "ci": [
+     0.0057,
+     0.0401
+    ],
+    "fa": 11,
+    "at_fire": "6/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.525,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.426,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0014,
+    "ci": [
+     0.0,
+     0.0034
+    ],
+    "fa": 3
+   },
+   "burn": {
+    "fa_km2": 0.021,
+    "ci": [
+     0.0057,
+     0.0401
+    ],
+    "fa": 11,
+    "at_fire": "6/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.1286
+ },
+ "yolo_siverek_v2_yolo26n-seg_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 0
+  },
+  "synthetic_f1": {
+   "thr": 0.2,
+   "narli": {
+    "hit": true,
+    "iou": 0.759,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.426,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0,
+     0.0048
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0381,
+    "ci": [
+     0.0153,
+     0.0668
+    ],
+    "fa": 20,
+    "at_fire": "5/80"
+   },
+   "shadow": {
+    "fa_km2": 0.0916,
+    "ci": [
+     0.0153,
+     0.1831
+    ],
+    "fa": 6,
+    "on_shadow": 1
+   },
+   "later_hits": []
+  },
+  "synthetic_f1_same_rule": {
+   "thr": 0.35,
+   "narli": {
+    "hit": true,
+    "iou": 0.759,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.426,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "fa": 0
+   },
+   "nullval": {
+    "fa_km2": 0.0019,
+    "ci": [
+     0.0,
+     0.0048
+    ],
+    "fa": 4
+   },
+   "burn": {
+    "fa_km2": 0.0248,
+    "ci": [
+     0.0076,
+     0.0496
+    ],
+    "fa": 13,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.061,
+    "ci": [
+     0.0,
+     0.1526
+    ],
+    "fa": 4,
+    "on_shadow": 0
+   },
+   "later_hits": []
+  },
+  "ece": 0.1428
+ },
+ "zscore": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 20,
+   "siverek": 1
+  },
+  "conventional": {
+   "thr": 4.0,
+   "narli": {
+    "hit": true,
+    "iou": 0.616,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.465,
+    "rank": 1,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.5133,
+    "ci": [
+     0.3052,
+     0.7629
+    ],
+    "fa": 74
+   },
+   "nullval": {
+    "fa_km2": 0.79,
+    "ci": [
+     0.7089,
+     0.8769
+    ],
+    "fa": 1636
+   },
+   "burn": {
+    "fa_km2": 0.9155,
+    "ci": [
+     0.7095,
+     1.1178
+    ],
+    "fa": 480,
+    "at_fire": "51/80"
+   },
+   "shadow": {
+    "fa_km2": 1.0834,
+    "ci": [
+     0.6866,
+     1.4805
+    ],
+    "fa": 71,
+    "on_shadow": 24
+   },
+   "later_hits": [
+    "siverek_2021-08-20",
+    "siverek_2021-08-25",
+    "siverek_2021-08-30"
+   ]
+  },
+  "synthetic_f1": {
+   "thr": 7.5,
+   "narli": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "siverek": {
+    "hit": false,
+    "iou": null,
+    "rank": null,
+    "strict": false,
+    "centroid": true,
+    "raw_hit": false
+   },
+   "null22": {
+    "fa_km2": 0.0347,
+    "ci": [
+     0.0,
+     0.0971
+    ],
+    "fa": 5
+   },
+   "nullval": {
+    "fa_km2": 0.1656,
+    "ci": [
+     0.1323,
+     0.2009
+    ],
+    "fa": 343
+   },
+   "burn": {
+    "fa_km2": 0.206,
+    "ci": [
+     0.124,
+     0.2956
+    ],
+    "fa": 108,
+    "at_fire": "21/80"
+   },
+   "shadow": {
+    "fa_km2": 0.1373,
+    "ci": [
+     0.0153,
+     0.2899
+    ],
+    "fa": 9,
+    "on_shadow": 6
+   },
+   "later_hits": []
+  }
+ }
+}

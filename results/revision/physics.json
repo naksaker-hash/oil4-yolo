@@ -1,0 +1,560 @@
+{
+ "narli": {
+  "n_px": 872,
+  "k10": {
+   "B2": {
+    "k_raw": 0.562,
+    "iqr": [
+     0.395,
+     0.799
+    ],
+    "control_ratio": 1.129,
+    "n_control": 8964,
+    "k_corr": 0.498
+   },
+   "B3": {
+    "k_raw": 0.472,
+    "iqr": [
+     0.309,
+     0.681
+    ],
+    "control_ratio": 1.005,
+    "n_control": 8320,
+    "k_corr": 0.469
+   },
+   "B4": {
+    "k_raw": 0.48,
+    "iqr": [
+     0.321,
+     0.682
+    ],
+    "control_ratio": 0.982,
+    "n_control": 7964,
+    "k_corr": 0.489
+   },
+   "B5": {
+    "k_raw": 0.487,
+    "iqr": [
+     0.33,
+     0.685
+    ],
+    "control_ratio": 0.962,
+    "n_control": 7723,
+    "k_corr": 0.507
+   },
+   "B6": {
+    "k_raw": 0.499,
+    "iqr": [
+     0.332,
+     0.694
+    ],
+    "control_ratio": 0.971,
+    "n_control": 7720,
+    "k_corr": 0.514
+   },
+   "B7": {
+    "k_raw": 0.52,
+    "iqr": [
+     0.348,
+     0.711
+    ],
+    "control_ratio": 0.973,
+    "n_control": 6645,
+    "k_corr": 0.534
+   },
+   "B8": {
+    "k_raw": 0.535,
+    "iqr": [
+     0.35,
+     0.718
+    ],
+    "control_ratio": 0.974,
+    "n_control": 7140,
+    "k_corr": 0.549
+   },
+   "B8A": {
+    "k_raw": 0.542,
+    "iqr": [
+     0.362,
+     0.725
+    ],
+    "control_ratio": 0.957,
+    "n_control": 7385,
+    "k_corr": 0.566
+   },
+   "B11": {
+    "k_raw": 0.957,
+    "iqr": [
+     0.786,
+     1.049
+    ],
+    "control_ratio": 1.074,
+    "n_control": 10126,
+    "k_corr": 0.891
+   },
+   "B12": {
+    "k_raw": 1.076,
+    "iqr": [
+     0.937,
+     1.167
+    ],
+    "control_ratio": 1.123,
+    "n_control": 10936,
+    "k_corr": 0.959
+   }
+  },
+  "k20": {
+   "B2": {
+    "k_raw": 0.566,
+    "iqr": [
+     0.397,
+     0.799
+    ],
+    "control_ratio": 1.13,
+    "n_control": 2162,
+    "k_corr": 0.501
+   },
+   "B3": {
+    "k_raw": 0.475,
+    "iqr": [
+     0.313,
+     0.7
+    ],
+    "control_ratio": 1.008,
+    "n_control": 2015,
+    "k_corr": 0.471
+   },
+   "B4": {
+    "k_raw": 0.481,
+    "iqr": [
+     0.324,
+     0.694
+    ],
+    "control_ratio": 0.986,
+    "n_control": 2242,
+    "k_corr": 0.487
+   },
+   "B5": {
+    "k_raw": 0.488,
+    "iqr": [
+     0.327,
+     0.683
+    ],
+    "control_ratio": 0.964,
+    "n_control": 2050,
+    "k_corr": 0.507
+   },
+   "B6": {
+    "k_raw": 0.506,
+    "iqr": [
+     0.324,
+     0.685
+    ],
+    "control_ratio": 0.971,
+    "n_control": 1943,
+    "k_corr": 0.521
+   },
+   "B7": {
+    "k_raw": 0.532,
+    "iqr": [
+     0.341,
+     0.712
+    ],
+    "control_ratio": 0.974,
+    "n_control": 1734,
+    "k_corr": 0.546
+   },
+   "B8": {
+    "k_raw": 0.535,
+    "iqr": [
+     0.352,
+     0.717
+    ],
+    "control_ratio": 0.973,
+    "n_control": 1600,
+    "k_corr": 0.55
+   },
+   "B8A": {
+    "k_raw": 0.551,
+    "iqr": [
+     0.357,
+     0.721
+    ],
+    "control_ratio": 0.958,
+    "n_control": 1867,
+    "k_corr": 0.575
+   },
+   "B11": {
+    "k_raw": 0.955,
+    "iqr": [
+     0.8,
+     1.044
+    ],
+    "control_ratio": 1.074,
+    "n_control": 2636,
+    "k_corr": 0.889
+   },
+   "B12": {
+    "k_raw": 1.075,
+    "iqr": [
+     0.945,
+     1.179
+    ],
+    "control_ratio": 1.124,
+    "n_control": 2894,
+    "k_corr": 0.956
+   }
+  },
+  "models": {
+   "B2": {
+    "multiplicative_k": 0.493,
+    "mixing_slope": -0.138,
+    "mixing_intercept": 0.057,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -468.0
+   },
+   "B3": {
+    "multiplicative_k": 0.463,
+    "mixing_slope": -0.124,
+    "mixing_intercept": 0.0827,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -334.0
+   },
+   "B4": {
+    "multiplicative_k": 0.476,
+    "mixing_slope": 0.074,
+    "mixing_intercept": 0.0841,
+    "implied_rho_oil": 0.0908,
+    "delta_aic_mixing_minus_mult": -207.2
+   },
+   "B5": {
+    "multiplicative_k": 0.487,
+    "mixing_slope": -0.036,
+    "mixing_intercept": 0.1291,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -261.0
+   },
+   "B6": {
+    "multiplicative_k": 0.499,
+    "mixing_slope": -0.29,
+    "mixing_intercept": 0.2088,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -318.2
+   },
+   "B7": {
+    "multiplicative_k": 0.517,
+    "mixing_slope": -0.258,
+    "mixing_intercept": 0.2233,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -308.6
+   },
+   "B8": {
+    "multiplicative_k": 0.523,
+    "mixing_slope": -0.106,
+    "mixing_intercept": 0.1922,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -235.2
+   },
+   "B8A": {
+    "multiplicative_k": 0.542,
+    "mixing_slope": -0.144,
+    "mixing_intercept": 0.2269,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -281.6
+   },
+   "B11": {
+    "multiplicative_k": 0.831,
+    "mixing_slope": 0.318,
+    "mixing_intercept": 0.1788,
+    "implied_rho_oil": 0.2622,
+    "delta_aic_mixing_minus_mult": -242.6
+   },
+   "B12": {
+    "multiplicative_k": 0.914,
+    "mixing_slope": 0.288,
+    "mixing_intercept": 0.1513,
+    "implied_rho_oil": 0.2124,
+    "delta_aic_mixing_minus_mult": -436.1
+   }
+  }
+ },
+ "siverek": {
+  "n_px": 49,
+  "k10": {
+   "B2": {
+    "k_raw": 0.228,
+    "iqr": [
+     0.168,
+     0.295
+    ],
+    "control_ratio": 0.523,
+    "n_control": 27837,
+    "k_corr": 0.436
+   },
+   "B3": {
+    "k_raw": 0.253,
+    "iqr": [
+     0.202,
+     0.297
+    ],
+    "control_ratio": 0.713,
+    "n_control": 28936,
+    "k_corr": 0.354
+   },
+   "B4": {
+    "k_raw": 0.285,
+    "iqr": [
+     0.251,
+     0.325
+    ],
+    "control_ratio": 0.621,
+    "n_control": 25160,
+    "k_corr": 0.459
+   },
+   "B5": {
+    "k_raw": 0.377,
+    "iqr": [
+     0.326,
+     0.431
+    ],
+    "control_ratio": 0.829,
+    "n_control": 19043,
+    "k_corr": 0.455
+   },
+   "B6": {
+    "k_raw": 0.346,
+    "iqr": [
+     0.262,
+     0.432
+    ],
+    "control_ratio": 0.939,
+    "n_control": 9807,
+    "k_corr": 0.368
+   },
+   "B7": {
+    "k_raw": 0.313,
+    "iqr": [
+     0.254,
+     0.419
+    ],
+    "control_ratio": 0.903,
+    "n_control": 20655,
+    "k_corr": 0.346
+   },
+   "B8": {
+    "k_raw": 0.303,
+    "iqr": [
+     0.216,
+     0.424
+    ],
+    "control_ratio": 0.908,
+    "n_control": 21347,
+    "k_corr": 0.334
+   },
+   "B8A": {
+    "k_raw": 0.375,
+    "iqr": [
+     0.294,
+     0.469
+    ],
+    "control_ratio": 0.92,
+    "n_control": 17377,
+    "k_corr": 0.407
+   },
+   "B11": {
+    "k_raw": 0.712,
+    "iqr": [
+     0.659,
+     0.795
+    ],
+    "control_ratio": 0.969,
+    "n_control": 13950,
+    "k_corr": 0.734
+   },
+   "B12": {
+    "k_raw": 0.76,
+    "iqr": [
+     0.709,
+     0.851
+    ],
+    "control_ratio": 0.88,
+    "n_control": 11401,
+    "k_corr": 0.864
+   }
+  },
+  "k20": {
+   "B2": {
+    "k_raw": 0.257,
+    "iqr": [
+     0.225,
+     0.341
+    ],
+    "control_ratio": 0.527,
+    "n_control": 7064,
+    "k_corr": 0.488
+   },
+   "B3": {
+    "k_raw": 0.285,
+    "iqr": [
+     0.226,
+     0.377
+    ],
+    "control_ratio": 0.716,
+    "n_control": 7044,
+    "k_corr": 0.398
+   },
+   "B4": {
+    "k_raw": 0.311,
+    "iqr": [
+     0.27,
+     0.406
+    ],
+    "control_ratio": 0.636,
+    "n_control": 6506,
+    "k_corr": 0.489
+   },
+   "B5": {
+    "k_raw": 0.4,
+    "iqr": [
+     0.33,
+     0.472
+    ],
+    "control_ratio": 0.829,
+    "n_control": 4898,
+    "k_corr": 0.483
+   },
+   "B6": {
+    "k_raw": 0.359,
+    "iqr": [
+     0.285,
+     0.452
+    ],
+    "control_ratio": 0.94,
+    "n_control": 2913,
+    "k_corr": 0.382
+   },
+   "B7": {
+    "k_raw": 0.344,
+    "iqr": [
+     0.282,
+     0.462
+    ],
+    "control_ratio": 0.906,
+    "n_control": 5899,
+    "k_corr": 0.379
+   },
+   "B8": {
+    "k_raw": 0.347,
+    "iqr": [
+     0.258,
+     0.448
+    ],
+    "control_ratio": 0.911,
+    "n_control": 6119,
+    "k_corr": 0.381
+   },
+   "B8A": {
+    "k_raw": 0.395,
+    "iqr": [
+     0.313,
+     0.507
+    ],
+    "control_ratio": 0.922,
+    "n_control": 5273,
+    "k_corr": 0.429
+   },
+   "B11": {
+    "k_raw": 0.728,
+    "iqr": [
+     0.646,
+     0.793
+    ],
+    "control_ratio": 0.968,
+    "n_control": 3168,
+    "k_corr": 0.752
+   },
+   "B12": {
+    "k_raw": 0.757,
+    "iqr": [
+     0.708,
+     0.834
+    ],
+    "control_ratio": 0.881,
+    "n_control": 3129,
+    "k_corr": 0.859
+   }
+  },
+  "models": {
+   "B2": {
+    "multiplicative_k": 0.512,
+    "mixing_slope": 0.84,
+    "mixing_intercept": -0.019,
+    "implied_rho_oil": -0.1183,
+    "delta_aic_mixing_minus_mult": -16.4
+   },
+   "B3": {
+    "multiplicative_k": 0.378,
+    "mixing_slope": 0.491,
+    "mixing_intercept": -0.0091,
+    "implied_rho_oil": -0.018,
+    "delta_aic_mixing_minus_mult": -2.1
+   },
+   "B4": {
+    "multiplicative_k": 0.49,
+    "mixing_slope": 0.496,
+    "mixing_intercept": -0.0007,
+    "implied_rho_oil": -0.0014,
+    "delta_aic_mixing_minus_mult": 2.0
+   },
+   "B5": {
+    "multiplicative_k": 0.466,
+    "mixing_slope": 0.419,
+    "mixing_intercept": 0.0053,
+    "implied_rho_oil": 0.0091,
+    "delta_aic_mixing_minus_mult": 1.1
+   },
+   "B6": {
+    "multiplicative_k": 0.37,
+    "mixing_slope": 0.471,
+    "mixing_intercept": -0.0233,
+    "implied_rho_oil": -0.0441,
+    "delta_aic_mixing_minus_mult": 1.5
+   },
+   "B7": {
+    "multiplicative_k": 0.384,
+    "mixing_slope": 0.491,
+    "mixing_intercept": -0.0332,
+    "implied_rho_oil": -0.0653,
+    "delta_aic_mixing_minus_mult": 0.5
+   },
+   "B8": {
+    "multiplicative_k": 0.358,
+    "mixing_slope": 0.457,
+    "mixing_intercept": -0.0325,
+    "implied_rho_oil": -0.0597,
+    "delta_aic_mixing_minus_mult": 0.8
+   },
+   "B8A": {
+    "multiplicative_k": 0.424,
+    "mixing_slope": 0.525,
+    "mixing_intercept": -0.0322,
+    "implied_rho_oil": -0.0677,
+    "delta_aic_mixing_minus_mult": 0.7
+   },
+   "B11": {
+    "multiplicative_k": 0.733,
+    "mixing_slope": -0.057,
+    "mixing_intercept": 0.1357,
+    "implied_rho_oil": null,
+    "delta_aic_mixing_minus_mult": -49.7
+   },
+   "B12": {
+    "multiplicative_k": 0.829,
+    "mixing_slope": 0.543,
+    "mixing_intercept": 0.035,
+    "implied_rho_oil": 0.0765,
+    "delta_aic_mixing_minus_mult": -38.0
+   }
+  }
+ }
+}

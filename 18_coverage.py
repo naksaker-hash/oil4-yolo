@@ -25,10 +25,11 @@ def main():
     sw = list(S.SWIR)
     vn = [i for i in range(len(S.BANDS)) if i not in sw]
     res = {}
-    for name, regime, prof in [("v1", "gen", "v1"), ("v2", "gen", "v2"), ("dr", "gen", "dr"),
-                               ("narli", "narli", "v1"), ("siverek", "siverek", "v2")]:
+    for name, regime, prof, off in [("v1", "gen", "v1", ()), ("v2", "gen", "v2", ()), ("dr", "gen", "dr", ()),
+                                    ("v2_noswir", "gen", "v2", ("swir",)),
+                                    ("narli", "narli", "v1", ()), ("siverek", "siverek", "v2", ())]:
         rng = np.random.default_rng(0)
-        ks = np.array([S.core_k(rng, regime, k_meas, prof) for _ in range(N)])
+        ks = np.array([S.core_k(rng, regime, k_meas, prof, off) for _ in range(N)])
         v, s = ks[:, vn].mean(1), ks[:, sw].mean(1)
         res[name] = round(float(((v <= 0.6) & (s - v >= 0.35)).mean()), 4)
     print(res)
