@@ -157,6 +157,26 @@ class RandomForestDet(ScoreMapDetector):
         return p.reshape(CHIP, CHIP)
 
 
+class UNetDet(ScoreMapDetector):
+    """U-Net baseline (24_unet.py); the score is the per pixel sigmoid."""
+    name = "unet"
+
+    def __init__(self, run):
+        import torch
+        spec = importlib.util.spec_from_file_location("unet", ROOT / "24_unet.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        self.torch, self.mod = torch, mod
+        self.net = mod.UNet()
+        self.net.load_state_dict(torch.load(ROOT / "runs" / run / "best.pt", map_location="cpu"))
+        self.net.eval()
+
+    def score(self, img, pre=None, post=None):
+        with self.torch.no_grad():
+            x = self.mod.to_tensor(img)[None]
+            return self.torch.sigmoid(self.net(x))[0, 0].numpy()
+
+
 class YoloDet:
     name = "yolo"
 

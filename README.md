@@ -77,9 +77,12 @@ All three v2 seeds rank both spills first in their scenes; seed 2 misses them on
 | `21_revisit.py` | how often a clear pair brackets a summer day within a week, per plain |
 | `22_implant_test.py` | semi real test: measured spill attenuation implanted into the held out pairs, detection by size |
 | `23_fresh_eval.py` | every detector on the fresh pairs at its fixed, matched and null calibrated thresholds |
-| `run_revision.sh`, `run_fetch2.sh`, `run_reveval.sh`, `run_fresh.sh`, `run_mix_eval.sh` | the queues that produced the revision results |
+| `24_unet.py` | U-Net baseline (1.9 M parameters) trained on the same synthetic plumes and channels |
+| `25_diagnose.py` | event footprint diagnostics: scores on the real spill, in place implants, transplanted spill change |
+| `26_transplant_rings.py` | transplant of the observed spill change with 0 to 40 px of surroundings and the whole chip |
+| `run_revision.sh`, `run_fetch2.sh`, `run_reveval.sh`, `run_fresh.sh`, `run_mix_eval.sh`, `run_round3.sh` | the queues that produced the revision results |
 
-`04_synth.py --profile mix` is the linear mixing variant (v2 settings, a dark oil spectrum mixed into the background). Results of the second revision are in `results/revision` (`split_calibration.json`, `implant_test.json`, `coverage_grid.json`, `revisit.json`) and `results/revision_fresh`.
+`04_synth.py --profile mix` is the linear mixing variant (v2 settings, a dark oil spectrum mixed into the background). `04_synth.py --profile drs` is the structured blind generator (coherent spectrum, wide ranges set without either spill), and `05_train.py --scratch` trains from random initialisation. Results of the third revision (U-Net, drs, no pretraining, the two added cross event combinations, footprint diagnostics) are in `results/revision` (`summary.json`, `operating_points.json`, `diagnose.json`, `transplant_rings.json`). Results of the second revision are in `results/revision` (`split_calibration.json`, `implant_test.json`, `coverage_grid.json`, `revisit.json`) and `results/revision_fresh`.
 
 `data/manifest.csv` lists every clean training, validation and fresh (`split` = `fresh`) chip with its
 plain, location, tile and Sentinel-2 pre and post product identifiers, so the
@@ -89,7 +92,7 @@ several seeds are reported.
 
 ## Trained weights
 
-The `best.pt` of every run is attached to the [releases](../../releases) of this repository: the twelve original runs to v1.0, and the other seventeen (domain randomised seeds, ablation seeds 1 and 2, redrawn datasets, native 20 m, linear mixing and the two cross event runs) to v1.1.
+The `best.pt` of every run is attached to the [releases](../../releases) of this repository: the twelve original runs to v1.0, and the other seventeen (domain randomised seeds, ablation seeds 1 and 2, redrawn datasets, native 20 m, linear mixing and the two cross event runs) to v1.1, and the eight runs of the third revision (three drs seeds, the v2 run without pretraining, the Narlı factors with v2 settings, the Siverek factors with v1 settings and the two U-Nets, as `unet_gen_unet_s0.pt` and `unet_gen_v2_unet_s0.pt`) to v1.2.
 
 ## Data and licences
 

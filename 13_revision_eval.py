@@ -39,7 +39,7 @@ BAD_SCL = [3, 8, 9, 10]
 
 
 def grid_for(name):
-    if name.startswith("yolo") or name.startswith("rf"):
+    if name.startswith("yolo") or name.startswith("rf") or name.startswith("unet"):
         return np.round(np.arange(0.02, 0.96, 0.02), 2)
     if name.startswith("zscore"):
         return np.round(np.arange(2.0, 15.01, 0.25), 2)
@@ -72,6 +72,8 @@ def make_detector(spec):
         return R.RX(), "rx"
     if kind == "irmad":
         return R.IRMAD(), "irmad"
+    if kind == "unet":
+        return R.UNetDet(arg), f"unet_{arg}"
     if kind == "rf":
         return R.RandomForestDet(joblib.load(ROOT / "runs" / f"rf_{arg}" / "rf.joblib")), f"rf_{arg}"
     raise ValueError(spec)
@@ -98,6 +100,9 @@ def thresholds(det, name, spec, limit):
         th["synthetic_f1"], th["_val_f1"] = R.val_f1_threshold(det.score, VAL_ROOT, grid_for(name), "standard", limit)
     elif name == "irmad":
         th["conventional"] = float(chi2.ppf(0.999, 10))
+    elif name.startswith("unet"):
+        root = DATA / f"yolo_{name[5:].split('_unet')[0]}"
+        th["synthetic_f1"], th["_val_f1"] = R.val_f1_threshold(det.score, root, grid_for(name), "standard", limit)
     elif name.startswith("rf"):
         root = DATA / f"yolo_{name[3:]}"
         th["synthetic_f1"], th["_val_f1"] = R.val_f1_threshold(det.score, root, grid_for(name), "standard", limit)

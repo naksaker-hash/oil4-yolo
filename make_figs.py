@@ -335,19 +335,19 @@ def fig_map():
 
 def fig_workflow():
     """Processing chain from imagery to evaluation, one column, top to bottom."""
-    fig, ax = plt.subplots(figsize=(3.5, 4.7))
-    ax.set_xlim(0, 50); ax.set_ylim(0, 100); ax.axis("off")
+    fig, ax = plt.subplots(figsize=(3.6, 5.0))
+    ax.set_xlim(0, 50); ax.set_ylim(-2, 100); ax.axis("off")
     box = dict(boxstyle="round,pad=0.45", fc="#f4f4f2", ec="#888", lw=0.7)
     hi = dict(boxstyle="round,pad=0.45", fc="#e3f3ec", ec=COL["v2"], lw=1.0)
     real = dict(boxstyle="round,pad=0.45", fc="#e6eefa", ec=COL["zscore"], lw=1.0)
     spec = {
         "clean": (13, 92, "1,370 clean Sentinel-2\npairs, 10 plains\n(2019 to 2025)", box),
-        "gen": (13, 72, "Plume generator\nmultiplicative\nattenuation, v1 or v2", hi),
+        "gen": (13, 72, "Plume generators\nv1, v2, dr, drs,\ncross event, variants", hi),
         "feat": (13, 52, "Change channels\nΔNBR, Δlog BAI,\nΔlog mean reflectance", box),
-        "train": (13, 32, "YOLO26n-seg\n3,162 train, 948 val\nthreshold from val F1", hi),
-        "real": (38, 72, "2 spill pairs and\n22 null pairs\n(coregistered)", real),
-        "zs": (38, 32, "Outlier detector\nz ≤ −4 on ΔNBR", real),
-        "eval": (25.5, 8, "Scene level evaluation\nhit, IoU, rank,\nfalse alarms per km²", box),
+        "train": (13, 32, "YOLO networks\n3,162 train, 948 val\nthreshold from val F1", hi),
+        "real": (38, 72, "Real pairs: 2 spills,\n22 null, 316 held out,\n150 fresh, 90 burn\nand shadow, scenes", real),
+        "zs": (38, 32, "Baselines\nz score, Reed Xiaoli,\nIR-MAD, random forest,\nU-Net", real),
+        "eval": (25.5, 8, "Evaluation\nhit, IoU, rank, false alarms\nper km², implant and\ntransplant tests", box),
     }
     t = {k: ax.text(x, y, s, ha="center", va="center", fontsize=6.5, bbox=st, zorder=3)
          for k, (x, y, s, st) in spec.items()}
@@ -401,12 +401,19 @@ OP_ROWS = [  # (label, detector key in operating_points.json, group)
     ("YOLO11n v2", "yolo_gen_v2_yolo11n-seg_s0", "v2"),
     ("YOLO26n v2, new dataset", "yolo_gen_v2_d1_yolo26n-seg_s0", "v2"),
     ("YOLO26n v2, native 20 m", "yolo_gen_v2_n20_yolo26n-seg_s0", "v2"),
-    ("YOLO26n, Narlı factors", "yolo_narli_yolo26n-seg_s0", "cross"),
-    ("YOLO26n, Siverek factors", "yolo_siverek_v2_yolo26n-seg_s0", "cross"),
+    ("YOLO26n v2, mixing", "yolo_gen_mix_yolo26n-seg_s0", "v2"),
+    ("YOLO26n v2, no pretraining", "yolo_gen_v2_yolo26n-seg_scratch_s0", "v2"),
+    ("U-Net v1", "unet_gen_unet_s0", "unet"), ("U-Net v2", "unet_gen_v2_unet_s0", "unet"),
+    ("Narlı factors, v1", "yolo_narli_yolo26n-seg_s0", "cross"),
+    ("Narlı factors, v2", "yolo_narli_v2_yolo26n-seg_s0", "cross"),
+    ("Siverek factors, v1", "yolo_siverek_yolo26n-seg_s0", "cross"),
+    ("Siverek factors, v2", "yolo_siverek_v2_yolo26n-seg_s0", "cross"),
     ("YOLO26n dr, seed 0", "yolo_gen_dr_yolo26n-seg_s0", "dr"), ("YOLO26n dr, seed 1", "yolo_gen_dr_yolo26n-seg_s1", "dr"),
     ("YOLO26n dr, seed 2", "yolo_gen_dr_yolo26n-seg_s2", "dr"),
+    ("YOLO26n drs, seed 0", "yolo_gen_drs_yolo26n-seg_s0", "drs"), ("YOLO26n drs, seed 1", "yolo_gen_drs_yolo26n-seg_s1", "drs"),
+    ("YOLO26n drs, seed 2", "yolo_gen_drs_yolo26n-seg_s2", "drs"),
 ]
-GCOL = {"base": COL["zscore"], "v1": COL["v1"], "v2": COL["v2"], "cross": "#7a5cc4", "dr": "#b0892a"}
+GCOL = {"base": COL["zscore"], "v1": COL["v1"], "v2": COL["v2"], "cross": "#7a5cc4", "dr": "#b0892a", "drs": "#7d5f14", "unet": "#3f8f8a"}
 
 
 def fig_operating():
@@ -425,6 +432,13 @@ def fig_operating():
         else:
             a.plot([max(v, floor)], [y], "o", ms=6, color=GCOL[g], mec="white", mew=0.8, zorder=3)
             a.text(60, y, "0" if v == 0 else f"{v:.2g}", va="center", ha="right", fontsize=7, color="#333")
+            fp = ROOT / "runs" / "revision_fresh" / f"{key}.json"
+            if fp.exists():
+                fr = json.load(open(fp))
+                g_ = [round(t, 3) for t in fr["grid"]]
+                t_ = round(op[key]["both_thr"], 3)
+                if t_ in g_:
+                    a.plot([max(fr["fa_grid_km2"][g_.index(t_)], floor)], [y], "D", ms=4, color="#444", zorder=4)
         s = summ[key]
         k = "synthetic_f1_same_rule" if "synthetic_f1_same_rule" in s else "conventional" if "conventional" in s else "synthetic_f1"
         f = s[k]
@@ -434,9 +448,10 @@ def fig_operating():
     a.set_xscale("log"); a.set_xlim(floor * 0.6, 70)
     a.plot([], [], "o", color="#555", ms=5, label="matched point")
     a.plot([], [], "o", mfc="none", mec="#555", ms=7, label="fixed point, if both detected")
-    a.legend(loc="lower right", bbox_to_anchor=(0.86, 0.0), frameon=False, fontsize=7)
+    a.plot([], [], "D", color="#444", ms=4, label="matched point, 150 fresh pairs")
+    a.legend(loc="upper left", bbox_to_anchor=(0.1, 1.0), frameon=False, fontsize=7)
     a.set_xticks([floor, 1e-3, 1e-2, 1e-1, 1, 10]); a.set_xticklabels(["0", "0.001", "0.01", "0.1", "1", "10"])
-    a.set_xlabel("False alarms per km$^2$ on 316 held out pairs at the matched operating point")
+    a.set_xlabel("False alarms per km$^2$ at the matched operating point")
     a.grid(axis="x", color="#e5e5e5", lw=0.5); a.set_axisbelow(True)
     for sp in ("top", "right"):
         a.spines[sp].set_visible(False)

@@ -27,16 +27,18 @@ def main():
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--resume", action="store_true", help="continue from weights/last.pt")
+    ap.add_argument("--scratch", action="store_true", help="random initialisation instead of COCO weights")
     args = ap.parse_args()
     device = "mps" if torch.backends.mps.is_available() else \
         (0 if torch.cuda.is_available() else "cpu")
-    name = f"{args.regime}_{args.model.split('.')[0]}_s{args.seed}"
+    name = f"{args.regime}_{args.model.split('.')[0]}{'_scratch' if args.scratch else ''}_s{args.seed}"
     out = ROOT / "runs" / name
     if args.resume and (out / "weights" / "last.pt").exists():
         YOLO(str(out / "weights" / "last.pt")).train(resume=True)
         (out / "DONE").write_text("finished\n")
         return
-    YOLO(args.model).train(
+    YOLO(args.model.replace(".pt", ".yaml") if args.scratch else args.model).train(
+        pretrained=not args.scratch,
         data=str(DATA / f"yolo_{args.regime}" / "data_test_narli.yaml"),
         epochs=args.epochs, imgsz=args.imgsz, batch=args.batch, device=device,
         seed=args.seed, deterministic=True, project=str(ROOT / "runs"), name=name,

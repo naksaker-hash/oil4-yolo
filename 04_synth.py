@@ -109,6 +109,13 @@ def core_k(rng, regime, k_meas, profile="v1", off=()):
         k[SWIR] = kv + pull * (1 - kv) + rng.normal(0, 0.03, 2)
     else:
         k = np.asarray(k_meas[regime]) * rng.uniform(0.85, 1.15) + rng.normal(0, 0.03, len(BANDS))
+    if regime == "gen" and profile == "drs":
+        # structured blind randomisation (round 3 review): a coherent
+        # spectrum as in v1 and v2, but every range wide and set without
+        # reference to either event; SWIR may darken more or less than VNIR
+        kv = rng.uniform(0.1, 0.95)
+        k = kv + rng.normal(0, 0.04, len(BANDS))
+        k[SWIR] = kv + rng.uniform(-0.3, 1.3) * (1 - kv) + rng.normal(0, 0.03, 2)
     if regime == "gen" and profile == "dr":
         # domain randomisation, set without reference to either event: a
         # random overall darkening and an independent random factor per band
@@ -173,12 +180,12 @@ def implant(rng, pre, post, regime, k_meas, profile="v1", off=(), native20=False
         wgt = np.clip(d / max(d.max() * rng.uniform(0.3, 0.8), 1), 0, 1)
         # v1 always fades to 0.3 at the edge. v2 also allows a sharp edged
         # core, the oil3 Siverek core being strong up to its boundary.
-        if profile == "dr":
+        if profile in ("dr", "drs"):
             floor = rng.uniform(0.2, 1.0)
         else:
             floor = 0.3 if profile == "v1" or "sharp" in off else rng.uniform(0.3, 1.0)
         wgt = np.where(m, floor + (1 - floor) * wgt, 0)
-        if profile == "dr" and rng.random() < 0.5:
+        if profile in ("dr", "drs") and rng.random() < 0.5:
             # random unlabelled margin, width and weight drawn wide
             halo = ndi.binary_dilation(m, iterations=int(rng.integers(1, 7)))
             halo &= ndi.gaussian_filter(rng.standard_normal(m.shape), 2) > rng.uniform(-0.6, 0.3)
@@ -253,7 +260,7 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--native20", action="store_true",
                     help="implant the 20 m bands at their native resolution")
-    ap.add_argument("--profile", default="v1", choices=["v1", "v2", "dr", "mix"],
+    ap.add_argument("--profile", default="v1", choices=["v1", "v2", "dr", "drs", "mix"],
                     help="v2 adds sharp edged cores and an unlabelled oiled margin")
     ap.add_argument("--ablate", default="", choices=["", "sharp", "halo", "green", "swir"],
                     help="v2 with one ingredient switched back to v1 behaviour")

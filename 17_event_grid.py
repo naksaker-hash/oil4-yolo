@@ -24,6 +24,8 @@ def spec_of(name):
         return "yolo:" + name[5:]
     if name.startswith("rf_"):
         return "rf:" + name[3:]
+    if name.startswith("unet_"):
+        return "unet:" + name[5:]
     return name
 
 

@@ -1,0 +1,173 @@
+{
+ "gen_yolo26n-seg_s0": {
+  "thr": 0.35,
+  "narli": {
+   "max_on_spill": 0.0881,
+   "max_elsewhere": 0.0017,
+   "inplace": "1/6",
+   "transplant": "2/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.0081,
+   "max_elsewhere": 0.0016,
+   "inplace": "15/16",
+   "transplant": "12/16"
+  }
+ },
+ "gen_yolo26n-seg_s1": {
+  "thr": 0.35,
+  "narli": {
+   "max_on_spill": 0.2101,
+   "max_elsewhere": 0.0036,
+   "inplace": "2/6",
+   "transplant": "4/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.0376,
+   "max_elsewhere": 0.0,
+   "inplace": "12/16",
+   "transplant": "13/16"
+  }
+ },
+ "gen_yolo26n-seg_s2": {
+  "thr": 0.3,
+  "narli": {
+   "max_on_spill": 0.0835,
+   "max_elsewhere": 0.0016,
+   "inplace": "0/6",
+   "transplant": "4/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.0476,
+   "max_elsewhere": 0.002,
+   "inplace": "12/16",
+   "transplant": "12/16"
+  }
+ },
+ "gen_v2_yolo26n-seg_s0": {
+  "thr": 0.25,
+  "narli": {
+   "max_on_spill": 0.6961,
+   "max_elsewhere": 0.0,
+   "inplace": "6/6",
+   "transplant": "6/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.5168,
+   "max_elsewhere": 0.014,
+   "inplace": "15/16",
+   "transplant": "3/16"
+  }
+ },
+ "gen_v2_yolo26n-seg_s1": {
+  "thr": 0.35,
+  "narli": {
+   "max_on_spill": 0.5947,
+   "max_elsewhere": 0.0018,
+   "inplace": "6/6",
+   "transplant": "6/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.6311,
+   "max_elsewhere": 0.0018,
+   "inplace": "15/16",
+   "transplant": "4/16"
+  }
+ },
+ "gen_v2_yolo26n-seg_s2": {
+  "thr": 0.4,
+  "narli": {
+   "max_on_spill": 0.2212,
+   "max_elsewhere": 0.001,
+   "inplace": "6/6",
+   "transplant": "6/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.2202,
+   "max_elsewhere": 0.02,
+   "inplace": "16/16",
+   "transplant": "9/16"
+  }
+ },
+ "gen_dr_yolo26n-seg_s0": {
+  "thr": 0.35,
+  "narli": {
+   "max_on_spill": 0.0044,
+   "max_elsewhere": 0.0422,
+   "inplace": "5/6",
+   "transplant": "3/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.0052,
+   "max_elsewhere": 0.0085,
+   "inplace": "12/16",
+   "transplant": "13/16"
+  }
+ },
+ "gen_dr_yolo26n-seg_s1": {
+  "thr": 0.25,
+  "narli": {
+   "max_on_spill": 0.0038,
+   "max_elsewhere": 0.0497,
+   "inplace": "6/6",
+   "transplant": "1/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.007,
+   "max_elsewhere": 0.0242,
+   "inplace": "12/16",
+   "transplant": "3/16"
+  }
+ },
+ "gen_dr_yolo26n-seg_s2": {
+  "thr": 0.25,
+  "narli": {
+   "max_on_spill": 0.0285,
+   "max_elsewhere": 0.0356,
+   "inplace": "6/6",
+   "transplant": "5/6"
+  },
+  "siverek": {
+   "max_on_spill": 0.0919,
+   "max_elsewhere": 0.0118,
+   "inplace": "12/16",
+   "transplant": "14/16"
+  }
+ },
+ "_channels_dNBR_dlogBAI_dlnA": {
+  "narli": {
+   "real": [
+    -0.347,
+    0.816,
+    -0.474
+   ],
+   "inplace_median": [
+    -0.369,
+    0.711,
+    -0.516
+   ],
+   "transplant_median": [
+    -0.395,
+    0.709,
+    -0.5
+   ]
+  },
+  "siverek": {
+   "real": [
+    -0.395,
+    0.868,
+    -0.916
+   ],
+   "inplace_median": [
+    -0.358,
+    0.728,
+    -0.679
+   ],
+   "transplant_median": [
+    -0.434,
+    0.698,
+    -0.869
+   ]
+  }
+ }
+}
