@@ -344,9 +344,9 @@ def fig_workflow():
         "clean": (13, 92, "1,370 clean Sentinel-2\npairs, 10 plains\n(2019 to 2025)", box),
         "gen": (13, 72, "Plume generators\nv1, v2, dr, drs,\ncross event, variants", hi),
         "feat": (13, 52, "Change channels\nΔNBR, Δlog BAI,\nΔlog mean reflectance", box),
-        "train": (13, 32, "YOLO networks\n3,162 train, 948 val\nthreshold from val F1", hi),
+        "train": (13, 32, "YOLO networks, U-Net\n3,162 train, 948 val\nthreshold from val F1", hi),
         "real": (38, 72, "Real pairs: 2 spills,\n22 null, 316 held out,\n150 fresh, 90 burn\nand shadow, scenes", real),
-        "zs": (38, 32, "Baselines\nz score, Reed Xiaoli,\nIR-MAD, random forest,\nU-Net", real),
+        "zs": (38, 32, "Baselines\nz score, Reed Xiaoli,\nIR-MAD, random forest", real),
         "eval": (25.5, 8, "Evaluation\nhit, IoU, rank, false alarms\nper km², implant and\ntransplant tests", box),
     }
     t = {k: ax.text(x, y, s, ha="center", va="center", fontsize=6.5, bbox=st, zorder=3)
