@@ -1,0 +1,122 @@
+{
+ "gen_v2_yolo26n-seg_s0": {
+  "narli": {
+   "iou": 0.712,
+   "min": 0.644,
+   "max": 0.749
+  },
+  "siverek": {
+   "iou": 0.495,
+   "min": 0.215,
+   "max": 0.683
+  }
+ },
+ "gen_v2_yolo26n-seg_s1": {
+  "narli": {
+   "iou": 0.549,
+   "min": 0.505,
+   "max": 0.582
+  },
+  "siverek": {
+   "iou": 0.505,
+   "min": 0.206,
+   "max": 0.721
+  }
+ },
+ "gen_v2_yolo26n-seg_s2": {
+  "narli": null,
+  "siverek": null
+ },
+ "gen_v2_yolov8n-seg_s0": {
+  "narli": {
+   "iou": 0.777,
+   "min": 0.699,
+   "max": 0.825
+  },
+  "siverek": {
+   "iou": 0.47,
+   "min": 0.204,
+   "max": 0.651
+  }
+ },
+ "gen_v2_yolo11n-seg_s0": {
+  "narli": {
+   "iou": 0.594,
+   "min": 0.54,
+   "max": 0.631
+  },
+  "siverek": {
+   "iou": 0.448,
+   "min": 0.222,
+   "max": 0.623
+  }
+ },
+ "gen_v2_d1_yolo26n-seg_s0": {
+  "narli": {
+   "iou": 0.753,
+   "min": 0.674,
+   "max": 0.792
+  },
+  "siverek": {
+   "iou": 0.443,
+   "min": 0.22,
+   "max": 0.602
+  }
+ },
+ "gen_v2_yolo26n-seg_scratch_s0": {
+  "narli": {
+   "iou": 0.721,
+   "min": 0.659,
+   "max": 0.768
+  },
+  "siverek": {
+   "iou": 0.392,
+   "min": 0.16,
+   "max": 0.592
+  }
+ },
+ "narli_yolo26n-seg_s0": {
+  "narli": {
+   "iou": 0.525,
+   "min": 0.471,
+   "max": 0.576
+  },
+  "siverek": {
+   "iou": 0.426,
+   "min": 0.174,
+   "max": 0.655
+  }
+ },
+ "narli_v2_yolo26n-seg_s0": {
+  "narli": {
+   "iou": 0.499,
+   "min": 0.459,
+   "max": 0.534
+  },
+  "siverek": {
+   "iou": 0.607,
+   "min": 0.406,
+   "max": 0.667
+  }
+ },
+ "siverek_yolo26n-seg_s0": {
+  "narli": {
+   "iou": 0.561,
+   "min": 0.514,
+   "max": 0.586
+  },
+  "siverek": null
+ },
+ "siverek_v2_yolo26n-seg_s0": {
+  "narli": {
+   "iou": 0.759,
+   "min": 0.687,
+   "max": 0.814
+  },
+  "siverek": {
+   "iou": 0.426,
+   "min": 0.211,
+   "max": 0.58
+  }
+ }
+}

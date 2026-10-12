@@ -4,7 +4,7 @@ network outside the YOLO family). Training masks are rasterised from the
 YOLO polygons; validation uses the stored pixel masks of the held out
 plains. About 1.9 million parameters, close to YOLO26n-seg.
 
-    .venv/bin/python 24_unet.py --regime gen_v2 --seed 0
+    .venv/bin/python 24_unet.py --regime gen_v2 --seed 0 [--size 384]
 """
 import argparse
 import json
@@ -46,8 +46,11 @@ class UNet(nn.Module):
         return self.head(x)
 
 
-def to_tensor(img):
-    return torch.from_numpy(np.ascontiguousarray(img)).permute(2, 0, 1).float() / 255.0
+def to_tensor(img, size=SIZE):
+    x = torch.from_numpy(np.ascontiguousarray(img)).permute(2, 0, 1).float() / 255.0
+    if size != x.shape[-1]:
+        x = F.interpolate(x[None], size=(size, size), mode="bilinear", align_corners=False)[0]
+    return x
 
 
 def poly_mask(txt):
@@ -61,9 +64,9 @@ def poly_mask(txt):
 
 
 class Data(torch.utils.data.Dataset):
-    def __init__(self, root, split, aug):
+    def __init__(self, root, split, aug, size=SIZE):
         self.imgs = sorted((root / "images" / split).glob("*.png"))
-        self.root, self.split, self.aug = root, split, aug
+        self.root, self.split, self.aug, self.size = root, split, aug, size
 
     def __len__(self):
         return len(self.imgs)
@@ -82,7 +85,10 @@ class Data(torch.utils.data.Dataset):
                 img, m = img[::-1], m[::-1]
             k = np.random.randint(4)
             img, m = np.rot90(img, k), np.rot90(m, k)
-        return to_tensor(img), torch.from_numpy(np.ascontiguousarray(m)).float()[None]
+        y = torch.from_numpy(np.ascontiguousarray(m)).float()[None]
+        if self.size != SIZE:
+            y = F.interpolate(y[None], size=(self.size, self.size), mode="nearest")[0]
+        return to_tensor(img, self.size), y
 
 
 def loss_fn(logit, y):
@@ -96,15 +102,17 @@ def main():
     ap.add_argument("--regime", default="gen_v2")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--epochs", type=int, default=40)
+    ap.add_argument("--size", type=int, default=SIZE, help="input size; 384 matches the YOLO networks")
+    ap.add_argument("--batch", type=int, default=16)
     args = ap.parse_args()
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
     dev = "mps" if torch.backends.mps.is_available() else "cpu"
     root = DATA / f"yolo_{args.regime}"
-    out = ROOT / "runs" / f"{args.regime}_unet_s{args.seed}"
+    out = ROOT / "runs" / f"{args.regime}_unet{'' if args.size == SIZE else args.size}_s{args.seed}"
     out.mkdir(parents=True, exist_ok=True)
-    tr = torch.utils.data.DataLoader(Data(root, "train", True), batch_size=16, shuffle=True, num_workers=2)
-    va = torch.utils.data.DataLoader(Data(root, "val", False), batch_size=32, num_workers=2)
+    tr = torch.utils.data.DataLoader(Data(root, "train", True, args.size), batch_size=args.batch, shuffle=True, num_workers=2)
+    va = torch.utils.data.DataLoader(Data(root, "val", False, args.size), batch_size=2 * args.batch, num_workers=2)
     net = UNet().to(dev)
     opt = torch.optim.AdamW(net.parameters(), 1e-3, weight_decay=1e-4)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, args.epochs)
@@ -134,7 +142,7 @@ def main():
         if iou > best:
             best = iou
             torch.save(net.state_dict(), out / "best.pt")
-    json.dump({"log": log, "best_val_iou": best,
+    json.dump({"log": log, "best_val_iou": best, "size": args.size, "batch": args.batch,
                "params": sum(p.numel() for p in net.parameters())}, open(out / "train_log.json", "w"), indent=1)
     (out / "DONE").write_text("finished\n")
 

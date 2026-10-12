@@ -84,6 +84,29 @@
    "siverek": false
   }
  },
+ "unet_gen_v2_unet384_s0": {
+  "narli_spill": 1.0,
+  "narli_null_max": 0.0002,
+  "narli_margin": 0.9998,
+  "siverek_spill": 0.9881,
+  "siverek_null_max": 0.0848,
+  "siverek_margin": 0.9033,
+  "both_thr": 0.94,
+  "both_fa_km2": 0.0005,
+  "both_fa_n": 1,
+  "null_cal_0.01": {
+   "thr": 0.02,
+   "fa_km2": 0.001,
+   "narli": true,
+   "siverek": true
+  },
+  "null_cal_0.05": {
+   "thr": 0.02,
+   "fa_km2": 0.001,
+   "narli": true,
+   "siverek": true
+  }
+ },
  "unet_gen_v2_unet_s0": {
   "narli_spill": 1.0,
   "narli_null_max": 0.0025,

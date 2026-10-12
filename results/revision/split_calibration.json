@@ -69,6 +69,30 @@
    "siverek": false
   }
  },
+ "unet_gen_v2_unet384_s0": {
+  "n": {
+   "ceylanpinar": 158,
+   "amik_hatay": 158
+  },
+  "both_fa_by_plain": {
+   "ceylanpinar": 0.0,
+   "amik_hatay": 0.001
+  },
+  "cal_ceylanpinar": {
+   "thr": 0.02,
+   "fa_cal": 0.001,
+   "fa_other": 0.001,
+   "narli": true,
+   "siverek": true
+  },
+  "cal_amik_hatay": {
+   "thr": 0.02,
+   "fa_cal": 0.001,
+   "fa_other": 0.001,
+   "narli": true,
+   "siverek": true
+  }
+ },
  "unet_gen_v2_unet_s0": {
   "n": {
    "ceylanpinar": 158,

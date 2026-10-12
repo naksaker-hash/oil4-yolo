@@ -369,6 +369,66 @@
    "later_hits": []
   }
  },
+ "unet_gen_v2_unet384_s0": {
+  "scene_rank_spill_exceeded_by": {
+   "narli": 0,
+   "siverek": 1
+  },
+  "synthetic_f1": {
+   "thr": 0.02,
+   "narli": {
+    "hit": true,
+    "iou": 0.716,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "siverek": {
+    "hit": true,
+    "iou": 0.5,
+    "rank": 1,
+    "strict": true,
+    "centroid": true,
+    "raw_hit": true
+   },
+   "null22": {
+    "fa_km2": 0.0069,
+    "ci": [
+     0.0,
+     0.0208
+    ],
+    "fa": 1
+   },
+   "nullval": {
+    "fa_km2": 0.001,
+    "ci": [
+     0.0,
+     0.0024
+    ],
+    "fa": 2
+   },
+   "burn": {
+    "fa_km2": 0.0305,
+    "ci": [
+     0.0076,
+     0.0629
+    ],
+    "fa": 16,
+    "at_fire": "3/80"
+   },
+   "shadow": {
+    "fa_km2": 0.2289,
+    "ci": [
+     0.0763,
+     0.3967
+    ],
+    "fa": 15,
+    "on_shadow": 4
+   },
+   "later_hits": []
+  }
+ },
  "unet_gen_v2_unet_s0": {
   "scene_rank_spill_exceeded_by": {
    "narli": 0,

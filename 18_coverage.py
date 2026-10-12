@@ -26,7 +26,7 @@ def main():
     vn = [i for i in range(len(S.BANDS)) if i not in sw]
     res = {}
     draws = {}
-    for name, regime, prof, off in [("v1", "gen", "v1", ()), ("v2", "gen", "v2", ()), ("dr", "gen", "dr", ()),
+    for name, regime, prof, off in [("v1", "gen", "v1", ()), ("v2", "gen", "v2", ()), ("dr", "gen", "dr", ()), ("drs", "gen", "drs", ()),
                                     ("v2_noswir", "gen", "v2", ("swir",)),
                                     ("narli", "narli", "v1", ()), ("siverek", "siverek", "v2", ())]:
         rng = np.random.default_rng(0)
@@ -37,7 +37,7 @@ def main():
     print(res)
     R.save_json(res, ROOT / "runs" / "revision" / "coverage.json")
     # sensitivity to the two cut-offs, which were read off the spills
-    order = ["dr", "v1", "v2_noswir", "v2", "narli", "siverek"]
+    order = ["dr", "v1", "v2_noswir", "drs", "v2", "narli", "siverek"]
     grid = {}
     kept = 0
     cells = 0
@@ -45,8 +45,8 @@ def main():
         for gap in (0.25, 0.3, 0.35, 0.4, 0.45):
             c = {n: round(float(((draws[n][0] <= vmax) & (draws[n][1] - draws[n][0] >= gap)).mean()), 4) for n in order}
             grid[f"{vmax}_{gap}"] = c
-            vals = [c[n] for n in order]
-            ok = all(vals[i] <= vals[i + 1] for i in range(3))   # dr <= v1 <= noswir <= v2
+            ok = c["dr"] <= c["v1"] <= c["v2_noswir"] <= c["v2"]
+            grid[f"{vmax}_{gap}"]["drs_above_v1_and_noswir"] = c["drs"] > max(c["v1"], c["v2_noswir"])
             ok2 = c["v2"] > max(c["v1"], c["dr"])
             kept += ok
             cells += 1
@@ -54,6 +54,7 @@ def main():
             grid[f"{vmax}_{gap}"]["v2_above_v1_dr"] = ok2
     grid["_n_cells"] = cells
     grid["_n_full_order"] = kept
+    grid["_n_drs_above_v1_noswir"] = sum(grid[k]["drs_above_v1_and_noswir"] for k in grid if not k.startswith("_") and isinstance(grid[k], dict))
     grid["_n_v2_above"] = sum(grid[k]["v2_above_v1_dr"] for k in grid if not k.startswith("_"))
     R.save_json(grid, ROOT / "runs" / "revision" / "coverage_grid.json")
     print("full order kept in", kept, "of", cells, "; v2 above v1 and dr in", grid["_n_v2_above"])

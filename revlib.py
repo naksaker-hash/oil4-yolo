@@ -11,6 +11,7 @@ Hit rules
   centroid  the patch contains the centroid of the label
 """
 import importlib.util
+import re
 import json
 
 import numpy as np
@@ -170,11 +171,16 @@ class UNetDet(ScoreMapDetector):
         self.net = mod.UNet()
         self.net.load_state_dict(torch.load(ROOT / "runs" / run / "best.pt", map_location="cpu"))
         self.net.eval()
+        m = re.search(r"_unet(\d+)_", run)
+        self.size = int(m.group(1)) if m else mod.SIZE
 
     def score(self, img, pre=None, post=None):
         with self.torch.no_grad():
-            x = self.mod.to_tensor(img)[None]
-            return self.torch.sigmoid(self.net(x))[0, 0].numpy()
+            x = self.mod.to_tensor(img, self.size)[None]
+            p = self.torch.sigmoid(self.net(x))
+            if self.size != img.shape[0]:
+                p = self.torch.nn.functional.interpolate(p, size=img.shape[:2], mode="bilinear", align_corners=False)
+            return p[0, 0].numpy()
 
 
 class YoloDet:
