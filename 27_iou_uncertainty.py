@@ -19,7 +19,8 @@ from config import DATA, ROOT
 OUT = ROOT / "runs" / "revision"
 NETS = [f"gen_v2_yolo26n-seg_s{s}" for s in range(3)] + [
     "gen_v2_yolov8n-seg_s0", "gen_v2_yolo11n-seg_s0", "gen_v2_d1_yolo26n-seg_s0", "gen_v2_yolo26n-seg_scratch_s0",
-    "narli_yolo26n-seg_s0", "narli_v2_yolo26n-seg_s0", "siverek_yolo26n-seg_s0", "siverek_v2_yolo26n-seg_s0"]
+    "narli_yolo26n-seg_s0", "narli_v2_yolo26n-seg_s0", "siverek_yolo26n-seg_s0", "siverek_v2_yolo26n-seg_s0",
+    "gen_v2_unet384_s0"]
 
 
 def variants(lab):
@@ -38,8 +39,12 @@ def main():
         ev[e] = (R.pair_input(pre, post), lab)
     res = {}
     for run in NETS:
-        th = json.load(open(OUT / f"yolo_{run}.json"))["thresholds"]["synthetic_f1_same_rule"]
-        det = R.YoloDet(run)
+        if "unet" in run:
+            th = json.load(open(OUT / f"unet_{run}.json"))["thresholds"]["synthetic_f1"]
+            det = R.UNetDet(run)
+        else:
+            th = json.load(open(OUT / f"yolo_{run}.json"))["thresholds"]["synthetic_f1_same_rule"]
+            det = R.YoloDet(run)
         r = {}
         for e, (img, lab) in ev.items():
             s = det.score(img)
