@@ -77,6 +77,7 @@ All three v2 seeds rank both spills first in their scenes; seed 2 misses them on
 | `21_revisit.py` | how often a clear pair brackets a summer day within a week, per plain |
 | `22_implant_test.py` | semi real test: measured spill attenuation implanted into the held out pairs, detection by size |
 | `23_fresh_eval.py` | every detector on the fresh pairs at its fixed, matched and null calibrated thresholds |
+| `29_grouped_bootstrap.py` | false alarm intervals resampled by chip, plain and Sentinel-2 scene, clipping of the eight bit channels and chip overlap (`grouped_bootstrap.json`) |
 | `28_calibration_set.py` | null calibration on 300 pairs from four further plains (`19_fetch_fresh.py --set calib`, `23_fresh_eval.py --set calib`, queue `run_calib.sh`), counted on the fresh pairs and the other way round |
 | `24_unet.py` | U-Net baseline (1.9 M parameters) trained on the same synthetic plumes and channels |
 | `25_diagnose.py` | event footprint diagnostics: scores on the real spill, in place implants, transplanted spill change |
