@@ -77,15 +77,16 @@ All three v2 seeds rank both spills first in their scenes; seed 2 misses them on
 | `21_revisit.py` | how often a clear pair brackets a summer day within a week, per plain |
 | `22_implant_test.py` | semi real test: measured spill attenuation implanted into the held out pairs, detection by size |
 | `23_fresh_eval.py` | every detector on the fresh pairs at its fixed, matched and null calibrated thresholds |
+| `28_calibration_set.py` | null calibration on 300 pairs from four further plains (`19_fetch_fresh.py --set calib`, `23_fresh_eval.py --set calib`, queue `run_calib.sh`), counted on the fresh pairs and the other way round |
 | `24_unet.py` | U-Net baseline (1.9 M parameters) trained on the same synthetic plumes and channels |
 | `25_diagnose.py` | event footprint diagnostics: scores on the real spill, in place implants, transplanted spill change |
 | `27_iou_uncertainty.py` | IoU of each detected spill against the outline moved, eroded or dilated by one pixel |
 | `26_transplant_rings.py` | transplant of the observed spill change with 0 to 40 px of surroundings and the whole chip |
 | `run_revision.sh`, `run_fetch2.sh`, `run_reveval.sh`, `run_fresh.sh`, `run_mix_eval.sh`, `run_round3.sh`, `run_round4.sh` | the queues that produced the revision results |
 
-`04_synth.py --profile mix` is the linear mixing variant (v2 settings, a dark oil spectrum mixed into the background). `04_synth.py --profile drs` is the structured blind generator (coherent spectrum, wide ranges set without either spill), and `05_train.py --scratch` trains from random initialisation. `24_unet.py --size 384 --batch 8` trains the U-Net at the input size of the YOLO networks (fourth revision, `iou_uncertainty.json`, drs in `coverage_grid.json`). Results of the third revision (U-Net, drs, no pretraining, the two added cross event combinations, footprint diagnostics) are in `results/revision` (`summary.json`, `operating_points.json`, `diagnose.json`, `transplant_rings.json`). Results of the second revision are in `results/revision` (`split_calibration.json`, `implant_test.json`, `coverage_grid.json`, `revisit.json`) and `results/revision_fresh`.
+`04_synth.py --profile mix` is the linear mixing variant (v2 settings, a dark oil spectrum mixed into the background). `04_synth.py --profile drs` is the structured blind generator (coherent spectrum, wide ranges set without either spill), and `05_train.py --scratch` trains from random initialisation. `24_unet.py --size 384 --batch 8` trains the U-Net at the input size of the YOLO networks (fourth revision, `iou_uncertainty.json`, drs in `coverage_grid.json`). Results of the third revision (U-Net, drs, no pretraining, the two added cross event combinations, footprint diagnostics) are in `results/revision` (`summary.json`, `operating_points.json`, `diagnose.json`, `transplant_rings.json`). Results of the second revision are in `results/revision` (`split_calibration.json`, `implant_test.json`, `coverage_grid.json`, `revisit.json`) and `results/revision_fresh`. The independent calibration set is in `results/revision_calib` and `results/revision/calibration_set.json`.
 
-`data/manifest.csv` lists every clean training, validation and fresh (`split` = `fresh`) chip with its
+`data/manifest.csv` lists every clean training, validation, fresh (`split` = `fresh`) and calibration (`split` = `calib`) chip with its
 plain, location, tile and Sentinel-2 pre and post product identifiers, so the
 training set can be rebuilt exactly. Training uses `deterministic=True`, but
 GPU and library versions can still change results slightly, which is why

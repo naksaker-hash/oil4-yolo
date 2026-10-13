@@ -234,9 +234,11 @@ def fig_map():
     from matplotlib.patches import ConnectionPatch
     from config import EVENTS, PLAINS
     val_plains = ("ceylanpinar", "amik_hatay")
-    box_c = (35.0, 42.6, 35.9, 38.4)            # extent of panel c
+    box_c = (35.0, 42.6, 35.9, 39.0)            # extent of panel c
     fresh_plains = {"bismil": (40.62, 37.80, 41.10, 38.00), "cizre_silopi": (42.00, 37.15, 42.45, 37.35),
                     "barak": (37.75, 36.85, 38.05, 37.05)}
+    calib_plains = {"malatya": (38.05, 38.28, 38.45, 38.45), "elbistan_afsin": (36.95, 38.15, 37.35, 38.30),
+                    "nusaybin": (41.10, 37.03, 41.45, 37.15), "mus": (41.30, 38.70, 41.80, 38.85)}
     pts = {"train": [], "val": []}
     for f in sorted((DATA / "clean").glob("*.npz")):
         m = json.loads(str(np.load(f)["meta"]))
@@ -244,13 +246,15 @@ def fig_map():
         pts["val" if pl in val_plains else "train"].append((m["lon"], m["lat"]))
     pts["fresh"] = [(m["lon"], m["lat"]) for m in
                     (json.loads(str(np.load(f)["meta"])) for f in sorted((DATA / "fresh").glob("*.npz")))]
+    pts["calib"] = [(m["lon"], m["lat"]) for m in
+                    (json.loads(str(np.load(f)["meta"])) for f in sorted((DATA / "calib").glob("*.npz")))]
     have = lambda n: (ROOT / "assets" / n).exists()
     pipes = [("Kirkuk–Ceyhan pipeline", "pipeline_kirkuk_ceyhan", "-"),
              ("Batman–Dörtyol pipeline", "pipeline_batman_dortyol", "--")]
     halo = [pe.withStroke(linewidth=2.5, foreground="white")]
 
-    fig = plt.figure(figsize=(7.2, 6.4))
-    gs = fig.add_gridspec(2, 2, width_ratios=[1, 2.35], height_ratios=[1, 1.45], wspace=0.04, hspace=0.12)
+    fig = plt.figure(figsize=(7.2, 7.0))
+    gs = fig.add_gridspec(2, 2, width_ratios=[1, 2.35], height_ratios=[1, 1.75], wspace=0.04, hspace=0.12)
     # (a) globe, adapted from Wikimedia Commons (CC BY-SA 3.0)
     ga = fig.add_subplot(gs[0, 0])
     if have("globe_turkey.png"):
@@ -303,8 +307,10 @@ def fig_map():
         ax.add_patch(plt.Rectangle((a, b), c - a, d - b, fill=False, ec=col, lw=1.0))
     for n, (a, b, c, d) in fresh_plains.items():
         ax.add_patch(plt.Rectangle((a, b), c - a, d - b, fill=False, ec=COL["v2"], lw=1.0))
-    labels = {"train": "Training", "val": "Validation", "fresh": "Fresh false alarm"}
-    for k, c in [("train", "#777"), ("val", COL["v1"]), ("fresh", COL["v2"])]:
+    for n, (a, b, c, d) in calib_plains.items():
+        ax.add_patch(plt.Rectangle((a, b), c - a, d - b, fill=False, ec="#7b3fa0", lw=1.0))
+    labels = {"train": "Training", "val": "Validation", "fresh": "Fresh false alarm", "calib": "Calibration"}
+    for k, c in [("train", "#777"), ("val", COL["v1"]), ("fresh", COL["v2"]), ("calib", "#7b3fa0")]:
         p = np.array(pts[k])
         ax.scatter(p[:, 0], p[:, 1], s=2, color=c, lw=0, label=f"{labels[k]} chips ({len(p):,})")
     for e, lab, dx, dy in [("narli", "Narlı 2018", 0.1, -0.17), ("siverek", "Siverek 2021", -0.09, 0.3)]:

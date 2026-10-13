@@ -1,0 +1,992 @@
+{
+ "irmad": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": null,
+  "calib->fresh": null,
+  "fresh->calib": null,
+  "calib->held_out": null
+ },
+ "rf_gen": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": null,
+  "calib->fresh": null,
+  "fresh->calib": null,
+  "calib->held_out": null
+ },
+ "rf_gen_v2": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": null,
+  "calib->fresh": null,
+  "fresh->calib": null,
+  "calib->held_out": null
+ },
+ "rx": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 4342.56,
+   "fa_cal": 0.0068,
+   "fa_count": 0.0214,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->fresh": null,
+  "fresh->calib": null,
+  "calib->held_out": null
+ },
+ "unet_gen_unet_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.0034,
+   "fa_count": 0.0224,
+   "binding": false,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.0076,
+   "fa_count": 0.0224,
+   "binding": false,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.2,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0051,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.02,
+   "fa_cal": 0.0076,
+   "fa_count": 0.0034,
+   "binding": false,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "unet_gen_v2_unet384_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.001,
+   "fa_count": 0.0122,
+   "binding": false,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.0066,
+   "fa_count": 0.0122,
+   "binding": false,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.04,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0051,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.02,
+   "fa_cal": 0.0066,
+   "fa_count": 0.001,
+   "binding": false,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "unet_gen_v2_unet_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.0034,
+   "fa_count": 0.0061,
+   "binding": false,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.0071,
+   "fa_count": 0.0061,
+   "binding": false,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.02,
+   "fa_cal": 0.0061,
+   "fa_count": 0.0071,
+   "binding": false,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.02,
+   "fa_cal": 0.0071,
+   "fa_count": 0.0034,
+   "binding": false,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_d1_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0082,
+   "fa_count": 0.0153,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0153,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.14,
+   "fa_cal": 0.0071,
+   "fa_count": 0.0036,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.06,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0082,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_dr_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.22,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0254,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.32,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0183,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.5,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0046,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.32,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0058,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_dr_yolo26n-seg_s1": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.18,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0193,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.28,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0142,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.32,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0071,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.28,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0072,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_dr_yolo26n-seg_s2": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.22,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0163,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.32,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0102,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.4,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0081,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.32,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0058,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  }
+ },
+ "yolo_gen_drs_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.2,
+   "fa_cal": 0.0087,
+   "fa_count": 0.0112,
+   "binding": true,
+   "narli": false,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.14,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0214,
+   "binding": true,
+   "narli": false,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.26,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0046,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.14,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0145,
+   "binding": true,
+   "narli": false,
+   "siverek": true
+  }
+ },
+ "yolo_gen_drs_yolo26n-seg_s1": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.16,
+   "fa_cal": 0.0087,
+   "fa_count": 0.0234,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.16,
+   "fa_cal": 0.0086,
+   "fa_count": 0.0234,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.5,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0015,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.16,
+   "fa_cal": 0.0086,
+   "fa_count": 0.0087,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_drs_yolo26n-seg_s2": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.24,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0092,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.2,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0112,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.24,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0071,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.2,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0126,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_mix_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.14,
+   "fa_cal": 0.0082,
+   "fa_count": 0.0122,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.3,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0031,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.22,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0137,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.3,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0063,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_v2_d1_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.08,
+   "fa_cal": 0.0082,
+   "fa_count": 0.0214,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.12,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0142,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.24,
+   "fa_cal": 0.0071,
+   "fa_count": 0.0071,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.12,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0058,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_n20_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.38,
+   "fa_cal": 0.0087,
+   "fa_count": 0.0092,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.32,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0112,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.38,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0092,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.32,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0116,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_v2_yolo11n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0077,
+   "fa_count": 0.0153,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.1,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0102,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.12,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0071,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.1,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0043,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0082,
+   "fa_count": 0.0153,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0153,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.14,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0046,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0082,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo26n-seg_s1": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0173,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.14,
+   "fa_cal": 0.0086,
+   "fa_count": 0.0081,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.14,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0086,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.14,
+   "fa_cal": 0.0086,
+   "fa_count": 0.0048,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo26n-seg_s2": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.08,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0142,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.16,
+   "fa_cal": 0.0086,
+   "fa_count": 0.0092,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.12,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0107,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.16,
+   "fa_cal": 0.0086,
+   "fa_count": 0.0058,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolo26n-seg_scratch_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.04,
+   "fa_cal": 0.0082,
+   "fa_count": 0.0193,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.14,
+   "fa_cal": 0.0071,
+   "fa_count": 0.0061,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.08,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0137,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.14,
+   "fa_cal": 0.0071,
+   "fa_count": 0.0019,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_v2_yolov8n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.04,
+   "fa_cal": 0.0087,
+   "fa_count": 0.0203,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.08,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0102,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.1,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0076,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.08,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0063,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_gen_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.04,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0214,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0163,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.16,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0041,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.06,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0072,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_yolo26n-seg_s1": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.04,
+   "fa_cal": 0.0077,
+   "fa_count": 0.0244,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0193,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "fresh->calib": {
+   "thr": 0.16,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0041,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.06,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0068,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  }
+ },
+ "yolo_gen_yolo26n-seg_s2": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0082,
+   "fa_count": 0.0214,
+   "binding": true,
+   "narli": true,
+   "siverek": false
+  },
+  "calib->fresh": {
+   "thr": 0.04,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0244,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.2,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0025,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->held_out": {
+   "thr": 0.04,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0111,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_narli_v2_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.0077,
+   "fa_count": 0.0224,
+   "binding": false,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0071,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.04,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0112,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.06,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0039,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_narli_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.08,
+   "fa_cal": 0.0087,
+   "fa_count": 0.0142,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.1,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0112,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.14,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0081,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.1,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0072,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_siverek_v2_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.06,
+   "fa_cal": 0.0063,
+   "fa_count": 0.0081,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.04,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0153,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.06,
+   "fa_cal": 0.0081,
+   "fa_count": 0.0076,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.04,
+   "fa_cal": 0.0092,
+   "fa_count": 0.0106,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "yolo_siverek_yolo26n-seg_s0": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 0.02,
+   "fa_cal": 0.0063,
+   "fa_count": 0.0122,
+   "binding": false,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->fresh": {
+   "thr": 0.04,
+   "fa_cal": 0.0056,
+   "fa_count": 0.0051,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "fresh->calib": {
+   "thr": 0.04,
+   "fa_cal": 0.0051,
+   "fa_count": 0.0056,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  },
+  "calib->held_out": {
+   "thr": 0.04,
+   "fa_cal": 0.0056,
+   "fa_count": 0.0029,
+   "binding": true,
+   "narli": true,
+   "siverek": true
+  }
+ },
+ "zscore": {
+  "n_calib": 300,
+  "n_fresh": 150,
+  "held_out->fresh": {
+   "thr": 13.5,
+   "fa_cal": 0.0097,
+   "fa_count": 0.0326,
+   "binding": true,
+   "narli": false,
+   "siverek": false
+  },
+  "calib->fresh": null,
+  "fresh->calib": null,
+  "calib->held_out": null
+ }
+}

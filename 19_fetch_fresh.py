@@ -5,6 +5,12 @@ the 316 held out pairs of Ceylanpinar and Amik, whose synthetic versions
 formed the validation set used for model selection.
 
     for s in 1 2 3; do .venv/bin/python 19_fetch_fresh.py --n 50 --seed $s & done
+
+With --set calib, pairs are drawn instead from four further plains for an
+independent calibration set (external review, 13 Oct 2026), written to
+data/calib:
+
+    for s in 1 2 3 4; do .venv/bin/python 19_fetch_fresh.py --set calib --n 75 --seed $s & done
 """
 import argparse
 import importlib.util
@@ -23,14 +29,21 @@ FRESH_PLAINS = {
     "barak": (37.75, 36.85, 38.05, 37.05),
 }
 
+CALIB_PLAINS = {
+    "malatya": (38.05, 38.28, 38.45, 38.45),
+    "elbistan_afsin": (36.95, 38.15, 37.35, 38.30),
+    "nusaybin": (41.10, 37.03, 41.45, 37.15),
+    "mus": (41.30, 38.70, 41.80, 38.85),
+}
+
 _spec = importlib.util.spec_from_file_location("fetch", config.ROOT / "03_fetch_train.py")
 F = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(F)
 
 
-def random_point(rng):
+def random_point(rng, plains=FRESH_PLAINS):
     while True:
-        b = FRESH_PLAINS[rng.choice(sorted(FRESH_PLAINS))]
+        b = plains[rng.choice(sorted(plains))]
         lon, lat = rng.uniform(b[0], b[2]), rng.uniform(b[1], b[3])
         if all(F.km(lat, lon, e["lat"], e["lon"]) > config.EXCLUDE_KM for e in EVENTS.values()):
             return lon, lat
@@ -40,15 +53,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=50)
     ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--set", default="fresh", choices=("fresh", "calib"))
     args = ap.parse_args()
-    out = DATA / "fresh"
+    plains = FRESH_PLAINS if args.set == "fresh" else CALIB_PLAINS
+    out = DATA / args.set
     out.mkdir(parents=True, exist_ok=True)
     have = len(list(out.glob(f"f{args.seed}_*.npz")))
     rng = random.Random(args.seed * 7_000_003 + have)
     tries = 0
     while have < args.n and tries < args.n * 8:
         tries += 1
-        lon, lat = random_point(rng)
+        lon, lat = random_point(rng, plains)
         try:
             p = F.random_pair(rng, lon, lat)
             if p is None:

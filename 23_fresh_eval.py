@@ -4,6 +4,9 @@ calibration. Each detector is read on a threshold grid, and at its fixed,
 matched and null calibrated thresholds taken from runs/revision.
 
     .venv/bin/python 23_fresh_eval.py --det yolo:gen_v2_yolo26n-seg_s0
+
+With --set calib the same counts are made on the independent calibration
+set of 19_fetch_fresh.py --set calib and written to runs/revision_calib.
 """
 import argparse
 import importlib.util
@@ -17,13 +20,14 @@ from config import DATA, ROOT
 _spec = importlib.util.spec_from_file_location("ev", ROOT / "13_revision_eval.py")
 EV = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(EV)
-OUT = ROOT / "runs" / "revision_fresh"
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--det", required=True)
+    ap.add_argument("--set", default="fresh", choices=("fresh", "calib"))
     args = ap.parse_args()
+    OUT = ROOT / "runs" / ("revision_fresh" if args.set == "fresh" else "revision_calib")
     OUT.mkdir(parents=True, exist_ok=True)
     det, name = EV.make_detector(args.det)
     rev = json.load(open(ROOT / "runs" / "revision" / f"{name}.json"))
@@ -33,7 +37,7 @@ def main():
     pts = {"fixed": fixed, "matched": op.get("both_thr"),
            "null_cal": (op.get("null_cal_0.01") or {}).get("thr")}
     grid = np.array(rev["grid"])
-    files = sorted((DATA / "fresh").glob("*.npz"))
+    files = sorted((DATA / args.set).glob("*.npz"))
     counts = []
     at = {k: [] for k in pts}
     for f in files:
